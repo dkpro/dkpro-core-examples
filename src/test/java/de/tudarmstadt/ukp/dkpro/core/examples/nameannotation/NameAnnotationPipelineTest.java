@@ -26,16 +26,19 @@ import static org.junit.Assert.assertEquals;
 
 public class NameAnnotationPipelineTest
 {
+
+    public static final File EXPECTED_OUTPUT = new File(
+            "src/test/resources/nameannotation/NameAnnotationPipeline.txt");
+    public static final String ENCODING = "UTF-8";
+    public static final File OUTPUT_FILE = new File("target/NameAnnotationPipeline.txt");
+
     @Test
     public void test()
             throws Exception
     {
         NameAnnotationPipeline.main(new String[] {});
         assertEquals(
-                FileUtils.readFileToString(
-                        new File("src/test/resources/nameannotation/NameAnnotationPipeline.txt"),
-                        "UTF-8").trim(),
-                FileUtils.readFileToString(
-                        new File("target/NameAnnotationPipeline.txt"), "UTF-8").trim());
+                FileUtils.readFileToString(EXPECTED_OUTPUT, ENCODING).trim(),
+                FileUtils.readFileToString(OUTPUT_FILE, ENCODING).trim());
     }
 }
