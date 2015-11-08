@@ -120,7 +120,6 @@
         </executions>
       </plugin>
     </plugins>
-    <sourceDirectory>target/generated-sources/jcasgen</sourceDirectory>
     <resources>
       <resource>
         <filtering>false</filtering>
