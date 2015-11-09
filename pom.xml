@@ -151,49 +151,4 @@
       </resource>
     </resources>
   </build>
-  <profiles>
-    <profile>
-      <id>rat-check</id>
-      <activation>
-        <file>
-          <exists>src/main/java</exists>
-        </file>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.rat</groupId>
-            <artifactId>apache-rat-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>default</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>check</goal>
-                </goals>
-                <configuration>
-                  <excludes>
-                    <exclude>.activate-run-jcasgen</exclude>
-                    <exclude>.gitignore</exclude>
-                    <!-- maven config files -->
-                    <exclude>src/filter/**/*</exclude>
-                    <!-- release generated artifact -->
-                    <exclude>release.properties</exclude>
-                    <exclude>CHANGES</exclude>
-                    <exclude>NOTICE</exclude>
-                    <exclude>README</exclude>
-                    <exclude>README.md</exclude>
-                    <exclude>src/main/resources/**/*</exclude>
-                    <exclude>src/test/resources/**/*</exclude>
-                    <!-- generated JCas wrappers -->
-                    <exclude>src/main/java/**/type/**/*</exclude>
-                  </excludes>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
