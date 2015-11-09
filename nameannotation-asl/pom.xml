@@ -27,9 +27,6 @@
 
   <artifactId>nameannotation-asl</artifactId>
   <name>DKPro Core Examples -- Name Annotator</name>
-  <build>
-    <sourceDirectory>target/generated-sources/jcasgen</sourceDirectory>
-  </build>
   <dependencyManagement>
     <dependencies>
       <dependency>
