@@ -24,6 +24,7 @@ import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
+import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.File;
@@ -55,7 +56,8 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  */
 public class LdaEstimationPipeline
 {
-    private static final File TARGET_FILE = new File("target/model.mallet");
+    protected static final File TARGET_FILE = new File("target/model.mallet");
+    protected static final File OUTPUT_FILE = new File("target/inference.out");
     private static final String LANGUAGE = "en";
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
@@ -75,7 +77,9 @@ public class LdaEstimationPipeline
         AnalysisEngineDescription lda = createEngineDescription(MalletTopicModelEstimator.class,
                 MalletTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
                 MalletTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
+        AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class,
+                CasDumpWriter.PARAM_OUTPUT_FILE, OUTPUT_FILE);
 
-        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda);
+        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda, writer);
     }
 }

@@ -19,6 +19,7 @@ package de.tudarmstadt.ukp.dkpro.core.examples.lda;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.topicmodel.MalletTopicModelInferencer;
+import de.tudarmstadt.ukp.dkpro.core.mallet.type.TopicDistribution;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
@@ -26,12 +27,14 @@ import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.pipeline.SimplePipeline;
+import org.apache.uima.jcas.JCas;
 
 import java.io.File;
 import java.io.IOException;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
+import static org.apache.uima.fit.util.JCasUtil.select;
 
 /**
  * This pipeline infers topic distributions in a document set according to a previously estimated LDA topic model.
@@ -76,8 +79,9 @@ public class LdaInferencePipeline
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription lda = createEngineDescription(MalletTopicModelInferencer.class,
                 MalletTopicModelInferencer.PARAM_MODEL_LOCATION, MODEL_FILE);
-        AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class);
 
-        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda, writer);
+        for (JCas jcas : SimplePipeline.iteratePipeline(reader, segmenter, stopwordRemover, lda)) {
+            select(jcas, TopicDistribution.class).forEach(System.out::println);
+        }
     }
 }
