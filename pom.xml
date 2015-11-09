@@ -24,7 +24,7 @@
     <module>lda-asl</module>
     <module>tokenizedwriter-asl</module>
     <module>nameannotation-asl</module>
-    <module>stanfordcorecomponents-asl</module>
+    <module>stanfordcorecomponents-gpl</module>
   </modules>
   <parent>
     <artifactId>de.tudarmstadt.ukp.dkpro.core-asl</artifactId>
