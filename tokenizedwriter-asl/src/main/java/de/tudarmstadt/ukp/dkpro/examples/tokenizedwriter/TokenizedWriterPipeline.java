@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.core.examples.tokenizedwriter;
+package de.tudarmstadt.ukp.dkpro.examples.tokenizedwriter;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TokenizedTextWriter;

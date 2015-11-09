@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.core.examples.nameannotation;
+package de.tudarmstadt.ukp.dkpro.examples.nameannotation;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;

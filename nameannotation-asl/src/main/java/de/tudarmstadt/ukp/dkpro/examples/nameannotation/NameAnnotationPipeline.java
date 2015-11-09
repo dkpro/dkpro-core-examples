@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.core.examples.nameannotation;
+package de.tudarmstadt.ukp.dkpro.examples.nameannotation;
 
 import de.tudarmstadt.ukp.dkpro.core.dictionaryannotator.DictionaryAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.examples.type.Name;
