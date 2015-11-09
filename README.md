@@ -11,3 +11,6 @@ So far, it comprises the following examples:
 * **LdaInferencePipeline**: a pipeline that annotates documents with LDA topic proportions, using a previously computed model.
 * **TokenizedWriterPipeline**: demonstrates the TokenizedTextWriter which writes all tokens from all documents separated
 by whitespaces, one sentence per line.
+* **StanfordCoreComponents**: demonstrates the usage of the Stanford Core NLP tools; mind that they are
+ GPL-licensed!
+ 
