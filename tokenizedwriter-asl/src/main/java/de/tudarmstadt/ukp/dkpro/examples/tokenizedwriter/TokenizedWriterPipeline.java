@@ -41,7 +41,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  */
 public class TokenizedWriterPipeline
 {
-    private static final File TARGET_FILE = new File("target/tokenized.txt");
+    protected static final File TARGET_FILE = new File("target/tokenized.txt");
     private static final String LANGUAGE = "en";
     private static final String SOURCE_DIR = "src/main/resources/texts/*";
 
