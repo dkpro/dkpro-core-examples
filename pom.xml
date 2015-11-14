@@ -50,6 +50,17 @@
     <developerConnection>scm:git:git@github.com:dkpro/dkpro-core-examples.git</developerConnection>
     <url>https://github.com/dkpro/dkpro-core</url>
   </scm>
+  <repositories>
+    <!-- For UIMA/uimaFIT SNAPSHOT -->
+    <repository>
+      <id>apache.snapshots</id>
+      <name>Apache Snapshot Repository</name>
+      <url>http://repository.apache.org/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+  </repositories>
   <dependencyManagement>
     <dependencies>
       <dependency>
