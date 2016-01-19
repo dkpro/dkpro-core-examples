@@ -20,11 +20,11 @@ package de.tudarmstadt.ukp.dkpro.examples.nameannotation;
 import de.tudarmstadt.ukp.dkpro.core.dictionaryannotator.DictionaryAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.examples.type.Name;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+import de.tudarmstadt.ukp.dkpro.core.testing.dumper.CasDumpWriter;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
-import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class NameAnnotationPipeline
 
         AnalysisEngineDescription writer = createEngineDescription(
                 CasDumpWriter.class,
-                CasDumpWriter.PARAM_OUTPUT_FILE, "target/NameAnnotationPipeline.txt");
+                CasDumpWriter.PARAM_TARGET_LOCATION, "target/NameAnnotationPipeline.txt");
 
         SimplePipeline.runPipeline(reader, tokenizer, nameFinder, writer);
     }
