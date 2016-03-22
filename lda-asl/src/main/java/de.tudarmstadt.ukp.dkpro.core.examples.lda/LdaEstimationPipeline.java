@@ -21,7 +21,6 @@ import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
-import de.tudarmstadt.ukp.dkpro.core.testing.dumper.CasDumpWriter;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
@@ -77,9 +76,7 @@ public class LdaEstimationPipeline
         AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelEstimator.class,
                 LdaTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
                 LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
-        AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class,
-                CasDumpWriter.PARAM_TARGET_LOCATION, OUTPUT_FILE);
 
-        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda, writer);
+        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda);
     }
 }
