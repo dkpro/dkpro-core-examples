@@ -44,6 +44,7 @@ public class TokenizedWriterPipeline
     protected static final File TARGET_FILE = new File("target/tokenized.txt");
     private static final String LANGUAGE = "en";
     private static final String SOURCE_DIR = "src/main/resources/texts/*";
+    private static final boolean SINGULAR_TARGET = true;
 
     public static void main(String[] args)
             throws IOException, UIMAException
@@ -53,7 +54,8 @@ public class TokenizedWriterPipeline
                 TextReader.PARAM_LANGUAGE, LANGUAGE);
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
         AnalysisEngineDescription writer = createEngineDescription(TokenizedTextWriter.class,
-                TokenizedTextWriter.PARAM_TARGET_LOCATION, TARGET_FILE);
+                TokenizedTextWriter.PARAM_TARGET_LOCATION, TARGET_FILE,
+                TokenizedTextWriter.PARAM_SINGULAR_TARGET, SINGULAR_TARGET);
 
         SimplePipeline.runPipeline(reader, segmenter, writer);
     }

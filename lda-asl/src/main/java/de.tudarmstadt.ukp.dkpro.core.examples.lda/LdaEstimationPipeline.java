@@ -18,7 +18,7 @@
 package de.tudarmstadt.ukp.dkpro.core.examples.lda;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.topicmodel.MalletTopicModelEstimator;
+import de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import de.tudarmstadt.ukp.dkpro.core.testing.dumper.CasDumpWriter;
@@ -39,7 +39,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  * <li>A reader to read the input texts from disk: {@link TextReader}</li>
  * <li>A segmenter to split text into sentences and tokens: {@link OpenNlpSegmenter}</li>
  * <li>A stop word remover: {@link StopWordRemover}</li>
- * <li>The Mallet LDA topic model estimator: {@link MalletTopicModelEstimator}</li>
+ * <li>The Mallet LDA topic model estimator: {@link LdaTopicModelEstimator}</li>
  * </ol>
  * <p>
  * The resulting model is stored in the file {@code target/model.mallet}, as defined by the field {@code TARGET_FILE}.
@@ -50,7 +50,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  * increased.
  * <p>
  * The result is a {@link cc.mallet.topics.ParallelTopicModel} and can be used by a
- * {@link de.tudarmstadt.ukp.dkpro.core.mallet.topicmodel.MalletTopicModelInferencer} as well as
+ * {@link de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator} as well as
  * in Mallet directly.
  * </p>
  */
@@ -74,9 +74,9 @@ public class LdaEstimationPipeline
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
-        AnalysisEngineDescription lda = createEngineDescription(MalletTopicModelEstimator.class,
-                MalletTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
-                MalletTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
+        AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelEstimator.class,
+                LdaTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
+                LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
         AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class,
                 CasDumpWriter.PARAM_TARGET_LOCATION, OUTPUT_FILE);
 

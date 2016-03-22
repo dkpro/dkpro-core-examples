@@ -27,8 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class NameAnnotationPipelineTest
 {
 
-    public static final File EXPECTED_OUTPUT = new File(
-            "src/test/resources/output.txt");
+    public static final File EXPECTED_OUTPUT = new File("src/test/resources/output.txt");
     public static final String ENCODING = "UTF-8";
     public static final File OUTPUT_FILE = new File("target/NameAnnotationPipeline.txt");
 

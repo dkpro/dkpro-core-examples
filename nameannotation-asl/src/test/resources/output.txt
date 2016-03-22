@@ -19,21 +19,40 @@ Sentence
    sofa: _InitialView
    begin: 0
    end: 18
+   id: <null>
 [Where]
 Token
    sofa: _InitialView
    begin: 0
    end: 5
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [is]
 Token
    sofa: _InitialView
    begin: 6
    end: 8
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Cornelia]
 Token
    sofa: _InitialView
    begin: 9
    end: 17
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Cornelia]
 Name
    sofa: _InitialView
@@ -44,41 +63,84 @@ Token
    sofa: _InitialView
    begin: 17
    end: 18
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Suddely Marcus shouts: "Cornelia is standing over there!"]
 Sentence
    sofa: _InitialView
    begin: 19
    end: 76
+   id: <null>
 [Suddely]
 Token
    sofa: _InitialView
    begin: 19
    end: 26
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Marcus]
 Token
    sofa: _InitialView
    begin: 27
    end: 33
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [shouts]
 Token
    sofa: _InitialView
    begin: 34
    end: 40
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [:]
 Token
    sofa: _InitialView
    begin: 40
    end: 41
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 ["]
 Token
    sofa: _InitialView
    begin: 42
    end: 43
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Cornelia]
 Token
    sofa: _InitialView
    begin: 43
    end: 51
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [Cornelia]
 Name
    sofa: _InitialView
@@ -89,31 +151,67 @@ Token
    sofa: _InitialView
    begin: 52
    end: 54
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [standing]
 Token
    sofa: _InitialView
    begin: 55
    end: 63
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [over]
 Token
    sofa: _InitialView
    begin: 64
    end: 68
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [there]
 Token
    sofa: _InitialView
    begin: 69
    end: 74
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 [!]
 Token
    sofa: _InitialView
    begin: 74
    end: 75
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 ["]
 Token
    sofa: _InitialView
    begin: 75
    end: 76
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
 -------- View _InitialView end ----------------------------------
 
 ======== CAS 0 end ==================================
