@@ -27,6 +27,7 @@
     <module>tokenizedwriter-asl</module>
     <module>nameannotation-asl</module>
     <module>stanfordcorecomponents-gpl</module>
+    <module>wordembeddings-asl</module>
   </modules>
   <parent>
     <groupId>org.dkpro</groupId>
