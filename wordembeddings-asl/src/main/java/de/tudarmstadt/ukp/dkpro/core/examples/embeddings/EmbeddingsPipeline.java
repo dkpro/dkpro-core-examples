@@ -34,7 +34,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 
 public class EmbeddingsPipeline
 {
-    private static final File TARGET_DIR = new File("target/");
+    protected static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";

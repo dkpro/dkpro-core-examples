@@ -24,19 +24,24 @@ import java.nio.file.Files;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class EmbeddingsAnnotatorPipelineTest
+public class EmbeddingsPipelineTest
 {
-    private static final File EXPECTED_FILE = new File("src/test/resources/annotator_output.txt");
+    private static final File OUTPUT_FILE = new File(EmbeddingsPipeline.TARGET_DIR, "embeddings");
 
     @Test
     public void testMain()
             throws Exception
     {
-        EXPECTED_FILE.delete();
-        List<String> expectedOutput = Files.readAllLines(EXPECTED_FILE.toPath());
-        EmbeddingsAnnotatorPipeline.main(new String[] {});
-        List<String> output = Files.readAllLines(EmbeddingsAnnotatorPipeline.OUTPUT_FILE.toPath());
-        assertEquals(expectedOutput, output);
+        int expectedSize = 28;
+        int dimensionality = 50;
+        OUTPUT_FILE.delete();
+
+        EmbeddingsPipeline.main(new String[] {});
+        List<String> output = Files.readAllLines(OUTPUT_FILE.toPath());
+
+        assertEquals(expectedSize, output.size());
+        assertTrue(output.stream().allMatch(line -> line.split(" ").length == dimensionality + 1));
     }
 }

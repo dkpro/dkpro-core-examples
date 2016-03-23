@@ -25,7 +25,9 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <name>DKPro Core Examples -- Word Embeddings</name>
-
+  <properties>
+    <maven.surefire.heap>1g</maven.surefire.heap>
+  </properties>
   <artifactId>embeddings-asl</artifactId>
   <dependencies>
     <dependency>
