@@ -15,6 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsAnnotator;
@@ -34,6 +35,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 
 public class EmbeddingsAnnotatorPipeline
 {
+    protected static final File OUTPUT_FILE = new File("target/annotator_output.txt");
     private static final File EMBEDDINGS_FILE = new File("src/main/resources/embeddings");
     private static final String LANGUAGE = "en";
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
@@ -53,7 +55,8 @@ public class EmbeddingsAnnotatorPipeline
         AnalysisEngineDescription embeddingsAnnotator = createEngineDescription(
                 WordEmbeddingsAnnotator.class,
                 WordEmbeddingsAnnotator.PARAM_MODEL_LOCATION, EMBEDDINGS_FILE);
-        AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class);
+        AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class,
+                CasDumpWriter.PARAM_OUTPUT_FILE, OUTPUT_FILE);
 
         SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, embeddingsAnnotator, writer);
     }

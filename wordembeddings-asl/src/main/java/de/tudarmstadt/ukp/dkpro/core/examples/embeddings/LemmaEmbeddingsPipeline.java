@@ -15,10 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
@@ -31,13 +34,14 @@ import java.io.IOException;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
-public class EmbeddingsPipeline
+public class LemmaEmbeddingsPipeline
 {
     private static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
     private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
+    private static final String TYPENAME = Token.class.getTypeName() + "/lemma/value";
 
     public static void main(String[] args)
             throws IOException, UIMAException
@@ -50,11 +54,13 @@ public class EmbeddingsPipeline
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
+        AnalysisEngineDescription lemmatizer = createEngineDescription(StanfordLemmatizer.class);
         AnalysisEngineDescription embeddings = createEngineDescription(
                 WordEmbeddingsEstimator.class,
                 WordEmbeddingsEstimator.PARAM_TARGET_LOCATION, TARGET_DIR,
-                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS);
+                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
+                WordEmbeddingsEstimator.PARAM_TOKEN_FEATURE_PATH, TYPENAME);
 
-        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, embeddings);
+        SimplePipeline.runPipeline(reader, segmenter, lemmatizer, stopwordRemover, embeddings);
     }
 }
