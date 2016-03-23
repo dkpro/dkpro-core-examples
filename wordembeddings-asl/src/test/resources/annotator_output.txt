@@ -1,0 +1,817 @@
+======== CAS 0 begin ==================================
+
+-------- View _InitialView begin ----------------------------------
+
+DocumentMetaData
+   sofa: _InitialView
+   begin: 0
+   end: 101
+   language: "en"
+   documentTitle: "doc1.txt"
+   documentId: "doc1.txt"
+   isLastSegment: false
+
+CAS-Text:
+This is a document. It comprises a few sentences.
+They may or may not be separarated by line breaks.
+
+[This is a document.]
+Sentence
+   sofa: _InitialView
+   begin: 0
+   end: 19
+   id: <null>
+[document]
+WordEmbedding
+   sofa: _InitialView
+   begin: 10
+   end: 18
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.0078, -0.003315, 0.002334, 0.002554, -0.002513, 0.004535, -0.003397, 0.003135, -5.69E-4, -0.008094, 0.009328, 0.00634, -0.002393, -7.55E-4, -0.008063, ...]
+[document]
+Token
+   sofa: _InitialView
+   begin: 10
+   end: 18
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 18
+   end: 19
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[It comprises a few sentences.]
+Sentence
+   sofa: _InitialView
+   begin: 20
+   end: 49
+   id: <null>
+[comprises]
+WordEmbedding
+   sofa: _InitialView
+   begin: 23
+   end: 32
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.00519, 0.003247, -0.007602, 0.001741, 0.008117, -0.009752, -7.42E-4, -0.009916, 0.006003, -0.006994, 0.001316, -0.009475, -0.003673, -0.008321, -0.00982, ...]
+[comprises]
+Token
+   sofa: _InitialView
+   begin: 23
+   end: 32
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[few]
+WordEmbedding
+   sofa: _InitialView
+   begin: 35
+   end: 38
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.001261, 3.63E-4, 0.003331, -0.003417, -0.001661, -0.006527, 0.003491, -0.002724, -0.004333, -0.004374, 0.007243, 0.008156, -0.006298, -0.001043, 0.009655, ...]
+[few]
+Token
+   sofa: _InitialView
+   begin: 35
+   end: 38
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[sentences]
+WordEmbedding
+   sofa: _InitialView
+   begin: 39
+   end: 48
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.003771, 0.005726, 0.008829, 0.00885, 0.001347, 0.00925, -0.007238, 0.005345, 9.55E-4, -0.004167, -0.008461, -0.007207, 0.001408, -0.005681, 0.009499, ...]
+[sentences]
+Token
+   sofa: _InitialView
+   begin: 39
+   end: 48
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 48
+   end: 49
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[They may or may not be separarated by line breaks.]
+Sentence
+   sofa: _InitialView
+   begin: 50
+   end: 100
+   id: <null>
+[may]
+WordEmbedding
+   sofa: _InitialView
+   begin: 55
+   end: 58
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.007548, 0.002476, -0.001215, -0.004812, -9.0E-4, -0.008748, 0.004504, 7.55E-4, 0.008595, -0.007848, -0.002374, 0.004451, 0.003257, 0.008967, -0.004638, ...]
+[may]
+Token
+   sofa: _InitialView
+   begin: 55
+   end: 58
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[may]
+WordEmbedding
+   sofa: _InitialView
+   begin: 62
+   end: 65
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.007548, 0.002476, -0.001215, -0.004812, -9.0E-4, -0.008748, 0.004504, 7.55E-4, 0.008595, -0.007848, -0.002374, 0.004451, 0.003257, 0.008967, -0.004638, ...]
+[may]
+Token
+   sofa: _InitialView
+   begin: 62
+   end: 65
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[separarated]
+WordEmbedding
+   sofa: _InitialView
+   begin: 73
+   end: 84
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.003361, 0.008072, 7.31E-4, -0.00749, -0.00133, -0.002229, 0.008354, -0.004847, 0.007753, 0.00858, -0.001709, 0.003442, 0.002321, 8.98E-4, 0.004472, ...]
+[separarated]
+Token
+   sofa: _InitialView
+   begin: 73
+   end: 84
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[line]
+WordEmbedding
+   sofa: _InitialView
+   begin: 88
+   end: 92
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.00525, -0.005236, -0.002286, -0.004847, -0.00377, 0.001883, 0.004117, 0.008674, -0.005802, 0.004973, -0.003246, -0.003684, -0.002223, 6.2E-4, 6.7E-4, ...]
+[line]
+Token
+   sofa: _InitialView
+   begin: 88
+   end: 92
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[breaks]
+WordEmbedding
+   sofa: _InitialView
+   begin: 93
+   end: 99
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.007437, 0.006647, 0.005137, -0.007013, 1.88E-4, 0.004374, 0.001377, -0.007195, 0.006639, -0.002354, -0.004621, -0.003459, -0.001965, -0.008603, 0.006991, ...]
+[breaks]
+Token
+   sofa: _InitialView
+   begin: 93
+   end: 99
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 99
+   end: 100
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+-------- View _InitialView end ----------------------------------
+
+======== CAS 0 end ==================================
+
+
+======== CAS 1 begin ==================================
+
+-------- View _InitialView begin ----------------------------------
+
+DocumentMetaData
+   sofa: _InitialView
+   begin: 0
+   end: 229
+   language: "en"
+   documentTitle: "doc2.txt"
+   documentId: "doc2.txt"
+   isLastSegment: false
+
+CAS-Text:
+This is another document mentioning the term 'sentences'. However, for topic modelling, this amount of
+data does not make much sense.
+It is purely intended to provide a little amount of data for examplification. I hope it helps.
+
+[This is another document mentioning the term 'sentences'.]
+Sentence
+   sofa: _InitialView
+   begin: 0
+   end: 57
+   id: <null>
+[another]
+WordEmbedding
+   sofa: _InitialView
+   begin: 8
+   end: 15
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.006172, 0.006097, 0.001456, 0.007809, -0.00983, 0.001442, 0.00567, -0.007808, -0.002756, -0.007944, 0.002572, 0.002005, 0.003131, 0.00643, 0.007624, ...]
+[another]
+Token
+   sofa: _InitialView
+   begin: 8
+   end: 15
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[document]
+WordEmbedding
+   sofa: _InitialView
+   begin: 16
+   end: 24
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.0078, -0.003315, 0.002334, 0.002554, -0.002513, 0.004535, -0.003397, 0.003135, -5.69E-4, -0.008094, 0.009328, 0.00634, -0.002393, -7.55E-4, -0.008063, ...]
+[document]
+Token
+   sofa: _InitialView
+   begin: 16
+   end: 24
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[mentioning]
+WordEmbedding
+   sofa: _InitialView
+   begin: 25
+   end: 35
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.00229, -0.009192, 0.005603, 0.004132, 0.009351, -0.006689, 0.004736, -8.15E-4, -1.96E-4, 0.009203, 0.007657, 0.001414, -0.008574, -0.009324, 9.24E-4, ...]
+[mentioning]
+Token
+   sofa: _InitialView
+   begin: 25
+   end: 35
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[term]
+WordEmbedding
+   sofa: _InitialView
+   begin: 40
+   end: 44
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.009693, -0.008199, -0.002368, -1.38E-4, 0.004048, -0.005443, 0.002607, -1.04E-4, -0.00396, 0.007647, -0.001607, 0.002305, 0.003317, 9.8E-4, 6.57E-4, ...]
+[term]
+Token
+   sofa: _InitialView
+   begin: 40
+   end: 44
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+['sentences]
+WordEmbedding
+   sofa: _InitialView
+   begin: 45
+   end: 55
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.007465, -0.007579, 0.00831, 0.002385, -0.00345, 0.002319, 0.009165, 0.00624, -0.006768, 0.004057, 0.006263, 0.004673, 0.007967, 0.004782, 0.00376, ...]
+['sentences]
+Token
+   sofa: _InitialView
+   begin: 45
+   end: 55
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[']
+Token
+   sofa: _InitialView
+   begin: 55
+   end: 56
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 56
+   end: 57
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[However, for topic modelling, this amount of
+data does not make much sense.]
+Sentence
+   sofa: _InitialView
+   begin: 58
+   end: 133
+   id: <null>
+[However]
+WordEmbedding
+   sofa: _InitialView
+   begin: 58
+   end: 65
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.005922, -0.001305, -0.001753, 0.006223, 0.004835, -0.00552, -0.001736, -0.005351, -0.005344, -0.003238, 7.97E-4, 0.006109, 0.008004, 0.004845, 0.009652, ...]
+[However]
+Token
+   sofa: _InitialView
+   begin: 58
+   end: 65
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[,]
+Token
+   sofa: _InitialView
+   begin: 65
+   end: 66
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[topic]
+WordEmbedding
+   sofa: _InitialView
+   begin: 71
+   end: 76
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.003272, 0.002393, 0.007648, 0.009694, 0.006119, 0.006541, -0.001346, 0.009088, 0.008229, -0.001031, -0.004077, -0.003155, 0.00166, 0.005322, 0.008468, ...]
+[topic]
+Token
+   sofa: _InitialView
+   begin: 71
+   end: 76
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[modelling]
+WordEmbedding
+   sofa: _InitialView
+   begin: 77
+   end: 86
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.00595, 0.009687, 0.003873, -9.7E-5, 1.21E-4, -0.006944, -0.001338, -0.006517, -0.00168, -0.008819, -0.001301, 0.006264, 0.002031, 0.002878, -0.0064, ...]
+[modelling]
+Token
+   sofa: _InitialView
+   begin: 77
+   end: 86
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[,]
+Token
+   sofa: _InitialView
+   begin: 86
+   end: 87
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[amount]
+WordEmbedding
+   sofa: _InitialView
+   begin: 93
+   end: 99
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.008267, 5.36E-4, 0.005741, -0.00209, 0.002452, -0.002618, 0.007962, -0.003157, 8.62E-4, 0.005772, 0.003774, -0.003795, 0.008907, -0.00426, -0.002454, ...]
+[amount]
+Token
+   sofa: _InitialView
+   begin: 93
+   end: 99
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[data]
+WordEmbedding
+   sofa: _InitialView
+   begin: 103
+   end: 107
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.008301, -0.003253, 8.72E-4, 0.009062, 0.008747, -0.008076, 0.007743, 0.003117, -0.007305, 7.69E-4, -0.004463, 7.68E-4, 7.4E-5, -0.006824, -7.28E-4, ...]
+[data]
+Token
+   sofa: _InitialView
+   begin: 103
+   end: 107
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[does]
+WordEmbedding
+   sofa: _InitialView
+   begin: 108
+   end: 112
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.005214, -0.009894, -0.004648, 0.007255, -0.004065, -0.009862, -0.005803, -0.002779, -0.007499, 0.004613, 0.00415, 0.007365, -0.003976, -0.001693, 0.006199, ...]
+[does]
+Token
+   sofa: _InitialView
+   begin: 108
+   end: 112
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[make]
+WordEmbedding
+   sofa: _InitialView
+   begin: 117
+   end: 121
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.003648, -0.003908, 0.003608, -0.003718, 0.008465, -0.008716, -4.84E-4, 0.008684, -0.007261, -0.001033, -0.008476, -6.01E-4, -0.005315, 0.008059, -0.005615, ...]
+[make]
+Token
+   sofa: _InitialView
+   begin: 117
+   end: 121
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[much]
+WordEmbedding
+   sofa: _InitialView
+   begin: 122
+   end: 126
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.002544, -0.006661, 6.41E-4, -0.003573, -0.005606, -7.75E-4, -6.09E-4, -0.004974, -3.31E-4, -0.007355, -0.00121, -0.00279, -0.008897, 0.005674, -0.003404, ...]
+[much]
+Token
+   sofa: _InitialView
+   begin: 122
+   end: 126
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[sense]
+WordEmbedding
+   sofa: _InitialView
+   begin: 127
+   end: 132
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.004764, 0.004406, -0.001395, 1.49E-4, 0.00885, -0.002456, 0.006565, -0.001768, -0.008156, 0.006266, 0.007923, 8.55E-4, -0.0091, -0.006603, -3.01E-4, ...]
+[sense]
+Token
+   sofa: _InitialView
+   begin: 127
+   end: 132
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 132
+   end: 133
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[It is purely intended to provide a little amount of data for examplification.]
+Sentence
+   sofa: _InitialView
+   begin: 134
+   end: 211
+   id: <null>
+[purely]
+WordEmbedding
+   sofa: _InitialView
+   begin: 140
+   end: 146
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.008422, 0.00931, -0.004783, 0.00692, -0.00923, 0.004832, 0.006045, 0.009575, -0.003601, -0.005509, -0.003079, -0.00424, -0.004077, 0.005793, -0.009827, ...]
+[purely]
+Token
+   sofa: _InitialView
+   begin: 140
+   end: 146
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[intended]
+WordEmbedding
+   sofa: _InitialView
+   begin: 147
+   end: 155
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.001197, -8.1E-5, -0.007394, 0.004217, 0.002659, -0.003813, 0.009361, -0.009404, 0.006968, 4.98E-4, 3.02E-4, -0.00952, 0.005633, -0.002407, 0.009512, ...]
+[intended]
+Token
+   sofa: _InitialView
+   begin: 147
+   end: 155
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[provide]
+WordEmbedding
+   sofa: _InitialView
+   begin: 159
+   end: 166
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.008133, 4.48E-4, 0.001932, 0.009157, 0.002718, -1.67E-4, -0.007416, 0.001146, 0.007313, 0.005825, 0.004669, -0.005472, -0.00138, -0.005939, 0.009928, ...]
+[provide]
+Token
+   sofa: _InitialView
+   begin: 159
+   end: 166
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[little]
+WordEmbedding
+   sofa: _InitialView
+   begin: 169
+   end: 175
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.006974, -0.002811, -0.008524, 0.003437, -0.006155, 0.001182, -0.004154, -7.99E-4, 4.54E-4, 0.007785, -0.007287, -0.006346, -0.004963, 0.006579, -0.005016, ...]
+[little]
+Token
+   sofa: _InitialView
+   begin: 169
+   end: 175
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[amount]
+WordEmbedding
+   sofa: _InitialView
+   begin: 176
+   end: 182
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.008267, 5.36E-4, 0.005741, -0.00209, 0.002452, -0.002618, 0.007962, -0.003157, 8.62E-4, 0.005772, 0.003774, -0.003795, 0.008907, -0.00426, -0.002454, ...]
+[amount]
+Token
+   sofa: _InitialView
+   begin: 176
+   end: 182
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[data]
+WordEmbedding
+   sofa: _InitialView
+   begin: 186
+   end: 190
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [0.008301, -0.003253, 8.72E-4, 0.009062, 0.008747, -0.008076, 0.007743, 0.003117, -0.007305, 7.69E-4, -0.004463, 7.68E-4, 7.4E-5, -0.006824, -7.28E-4, ...]
+[data]
+Token
+   sofa: _InitialView
+   begin: 186
+   end: 190
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[examplification]
+WordEmbedding
+   sofa: _InitialView
+   begin: 195
+   end: 210
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-0.003278, -9.7E-4, 0.003891, 0.002983, 0.004825, -0.009219, 6.75E-4, 0.001538, -0.005389, 0.006379, -0.001751, -3.5E-5, -0.007201, -0.008516, 0.00965, ...]
+[examplification]
+Token
+   sofa: _InitialView
+   begin: 195
+   end: 210
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 210
+   end: 211
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[I hope it helps.]
+Sentence
+   sofa: _InitialView
+   begin: 212
+   end: 228
+   id: <null>
+[I]
+Token
+   sofa: _InitialView
+   begin: 212
+   end: 213
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[hope]
+WordEmbedding
+   sofa: _InitialView
+   begin: 214
+   end: 218
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [-1.11E-4, 0.009396, 0.001916, 0.003123, 0.00542, -0.002732, 0.00573, 0.009385, 0.004243, -0.00706, 0.009758, 0.004927, -0.001939, 0.006125, 0.009772, ...]
+[hope]
+Token
+   sofa: _InitialView
+   begin: 214
+   end: 218
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[helps]
+WordEmbedding
+   sofa: _InitialView
+   begin: 222
+   end: 227
+   WordEmbedding: DoubleArray
+      Array length: 50
+      Array elements: [5.44E-4, 0.00999, 0.001101, -0.00988, -8.25E-4, -0.00819, -0.00863, 0.008802, 0.007185, 0.003719, 3.89E-4, 0.004554, -0.006177, -0.007278, -0.007941, ...]
+[helps]
+Token
+   sofa: _InitialView
+   begin: 222
+   end: 227
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+[.]
+Token
+   sofa: _InitialView
+   begin: 227
+   end: 228
+   parent: <null>
+   lemma: <null>
+   stem: <null>
+   pos: <null>
+   morph: <null>
+   id: <null>
+-------- View _InitialView end ----------------------------------
+
+======== CAS 1 end ==================================
+
+
