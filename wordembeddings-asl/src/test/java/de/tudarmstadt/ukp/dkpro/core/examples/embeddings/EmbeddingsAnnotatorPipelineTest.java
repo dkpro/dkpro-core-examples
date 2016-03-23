@@ -33,7 +33,7 @@ public class EmbeddingsAnnotatorPipelineTest
     public void testMain()
             throws Exception
     {
-        EXPECTED_FILE.delete();
+        EmbeddingsAnnotatorPipeline.OUTPUT_FILE.delete();
         List<String> expectedOutput = Files.readAllLines(EXPECTED_FILE.toPath());
         EmbeddingsAnnotatorPipeline.main(new String[] {});
         List<String> output = Files.readAllLines(EmbeddingsAnnotatorPipeline.OUTPUT_FILE.toPath());
