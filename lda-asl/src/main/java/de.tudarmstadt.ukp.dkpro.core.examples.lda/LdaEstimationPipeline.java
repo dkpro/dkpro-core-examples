@@ -56,7 +56,6 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 public class LdaEstimationPipeline
 {
     protected static final File TARGET_FILE = new File("target/model.mallet");
-    protected static final File OUTPUT_FILE = new File("target/inference.out");
     private static final String LANGUAGE = "en";
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
