@@ -28,7 +28,7 @@
   <properties>
     <maven.surefire.heap>1g</maven.surefire.heap>
   </properties>
-  <artifactId>embeddings-asl</artifactId>
+  <artifactId>wordembeddings-asl</artifactId>
   <dependencies>
     <dependency>
       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
