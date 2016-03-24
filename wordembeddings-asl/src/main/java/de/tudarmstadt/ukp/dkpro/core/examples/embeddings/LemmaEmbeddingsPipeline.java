@@ -41,7 +41,7 @@ public class LemmaEmbeddingsPipeline
     private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
     private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
-    private static final String TYPENAME = Token.class.getTypeName() + "/lemma/value";
+    private static final String FEATURE_PATH = Token.class.getTypeName() + "/lemma/value";
 
     public static void main(String[] args)
             throws IOException, UIMAException
@@ -59,7 +59,7 @@ public class LemmaEmbeddingsPipeline
                 WordEmbeddingsEstimator.class,
                 WordEmbeddingsEstimator.PARAM_TARGET_LOCATION, TARGET_DIR,
                 WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
-                WordEmbeddingsEstimator.PARAM_TOKEN_FEATURE_PATH, TYPENAME);
+                WordEmbeddingsEstimator.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
 
         SimplePipeline.runPipeline(reader, segmenter, lemmatizer, stopwordRemover, embeddings);
     }
