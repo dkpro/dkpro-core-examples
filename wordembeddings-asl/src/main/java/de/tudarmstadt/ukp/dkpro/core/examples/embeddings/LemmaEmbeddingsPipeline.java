@@ -22,6 +22,7 @@ import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
@@ -52,6 +53,7 @@ public class LemmaEmbeddingsPipeline
                 TextReader.PARAM_SOURCE_LOCATION, inputDir,
                 TextReader.PARAM_LANGUAGE, LANGUAGE);
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
+        AnalysisEngineDescription posTagger = createEngineDescription(StanfordPosTagger.class);
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription lemmatizer = createEngineDescription(StanfordLemmatizer.class);
@@ -61,6 +63,7 @@ public class LemmaEmbeddingsPipeline
                 WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
                 WordEmbeddingsEstimator.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
 
-        SimplePipeline.runPipeline(reader, segmenter, lemmatizer, stopwordRemover, embeddings);
+        SimplePipeline
+                .runPipeline(reader, segmenter, posTagger, lemmatizer, stopwordRemover, embeddings);
     }
 }
