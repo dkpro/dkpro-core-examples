@@ -61,7 +61,25 @@
         <enabled>false</enabled>
       </releases>
     </repository>
+    <!-- For DKPro Core SNAPSHOTs -->
+    <repository>
+      <id>ukp-oss-snapshots</id>
+      <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <!-- For models -->
+    <repository>
+      <id>ukp-oss-model-releases</id>
+      <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local
+      </url>
+    </repository>
   </repositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
