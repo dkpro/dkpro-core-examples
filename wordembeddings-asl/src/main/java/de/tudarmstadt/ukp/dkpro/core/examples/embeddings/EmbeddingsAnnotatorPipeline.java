@@ -29,6 +29,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
@@ -36,15 +37,17 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 public class EmbeddingsAnnotatorPipeline
 {
     protected static final File OUTPUT_FILE = new File("target/annotator_output.txt");
-    private static final File EMBEDDINGS_FILE = new File("src/main/resources/embeddings");
+    private static final URL EMBEDDINGS_FILE = EmbeddingsAnnotatorPipeline.class.getClassLoader()
+            .getResource("embeddings");
     private static final String LANGUAGE = "en";
-    private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
-    private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
+    private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
+            .getResource("stopwords_en.txt");
+    private static final String DEFAULT_SOURCE = "src/main/resources/texts/*";
 
     public static void main(String[] args)
             throws IOException, UIMAException
     {
-        String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE_DIR;
+        String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE;
 
         CollectionReaderDescription reader = createReaderDescription(TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, inputDir,

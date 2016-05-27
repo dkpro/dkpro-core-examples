@@ -28,6 +28,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
@@ -36,14 +37,15 @@ public class EmbeddingsPipeline
 {
     protected static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
-    private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
-    private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
+    private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
+            .getResource("stopwords_en.txt");
+    private static final String DEFAULT_SOURCE = "src/main/resources/texts/*";
     private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
 
     public static void main(String[] args)
             throws IOException, UIMAException
     {
-        String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE_DIR;
+        String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE;
 
         CollectionReaderDescription reader = createReaderDescription(TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, inputDir,
@@ -54,7 +56,8 @@ public class EmbeddingsPipeline
         AnalysisEngineDescription embeddings = createEngineDescription(
                 WordEmbeddingsEstimator.class,
                 WordEmbeddingsEstimator.PARAM_TARGET_LOCATION, TARGET_DIR,
-                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS);
+                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
+                WordEmbeddingsEstimator.PARAM_OVERWRITE, true);
 
         SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, embeddings);
     }

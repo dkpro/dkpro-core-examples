@@ -31,6 +31,7 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
@@ -39,7 +40,8 @@ public class LemmaEmbeddingsPipeline
 {
     private static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
-    private static final File STOPWORD_FILE = new File("src/main/resources/stopwords_en.txt");
+    private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
+            .getResource("stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
     private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
     private static final String FEATURE_PATH = Token.class.getTypeName() + "/lemma/value";
