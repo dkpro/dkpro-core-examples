@@ -49,7 +49,7 @@
   <scm>
     <connection>scm:git:git://github.com/dkpro/dkpro-core-examples</connection>
     <developerConnection>scm:git:git@github.com:dkpro/dkpro-core-examples.git</developerConnection>
-    <url>https://github.com/dkpro/dkpro-core</url>
+    <url>https://github.com/dkpro/dkpro-core-examples</url>
   </scm>
   <repositories>
     <!-- For UIMA/uimaFIT SNAPSHOT -->
