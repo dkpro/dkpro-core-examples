@@ -34,7 +34,7 @@ public class LemmaEmbeddingsPipelineTest
     public void testMain()
             throws Exception
     {
-        int expectedSize = 28;
+        int expectedSize = 27;
         int dimensionality = 50;
         OUTPUT_FILE.delete();
 
