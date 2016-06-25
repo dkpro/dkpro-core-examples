@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2015
+ * Copyright 2016
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
  * <p>
@@ -15,11 +15,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.core.examples.lda;
+package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator;
+import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
+import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
@@ -33,35 +36,15 @@ import java.net.URL;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
-/**
- * This is a simple example pipeline to estimate an LDA topic model. It uses four components:
- * <ol>
- * <li>A reader to read the input texts from disk: {@link TextReader}</li>
- * <li>A segmenter to split text into sentences and tokens: {@link OpenNlpSegmenter}</li>
- * <li>A stop word remover: {@link StopWordRemover}</li>
- * <li>The Mallet LDA topic model estimator: {@link LdaTopicModelEstimator}</li>
- * </ol>
- * <p>
- * The resulting model is stored in the file {@code target/model.mallet}, as defined by the field {@code TARGET_FILE}.
- * <p>
- * The example makes use of two short documents which do not provide a sufficient amount of words to
- * produce meaningful results. However, by setting a different source, the pipeline can be used as is;
- * although the number of iterations (defined by the {@code ITERATIONS} field) should probably be
- * increased.
- * <p>
- * The result is a {@link cc.mallet.topics.ParallelTopicModel} and can be used by a
- * {@link de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator} as well as
- * in Mallet directly.
- * </p>
- */
-public class LdaEstimationPipeline
+public class LemmaEmbeddingsPipeline
 {
-    protected static final File TARGET_FILE = new File("target/model.mallet");
+    private static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
-    private static final URL STOPWORD_FILE = LdaEstimationPipeline.class.getClassLoader()
+    private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
             .getResource("stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
-    private static final int ITERATIONS = 100;
+    private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
+    private static final String FEATURE_PATH = Token.class.getTypeName() + "/lemma/value";
 
     public static void main(String[] args)
             throws IOException, UIMAException
@@ -72,12 +55,17 @@ public class LdaEstimationPipeline
                 TextReader.PARAM_SOURCE_LOCATION, inputDir,
                 TextReader.PARAM_LANGUAGE, LANGUAGE);
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
+        AnalysisEngineDescription posTagger = createEngineDescription(StanfordPosTagger.class);
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
-        AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelEstimator.class,
-                LdaTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
-                LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
+        AnalysisEngineDescription lemmatizer = createEngineDescription(StanfordLemmatizer.class);
+        AnalysisEngineDescription embeddings = createEngineDescription(
+                WordEmbeddingsEstimator.class,
+                WordEmbeddingsEstimator.PARAM_TARGET_LOCATION, TARGET_DIR,
+                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
+                WordEmbeddingsEstimator.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
 
-        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda);
+        SimplePipeline
+                .runPipeline(reader, segmenter, posTagger, lemmatizer, stopwordRemover, embeddings);
     }
 }

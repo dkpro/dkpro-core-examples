@@ -15,29 +15,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.examples.nameannotation;
+package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-public class NameAnnotationPipelineTest
+public class EmbeddingsPipelineTest
 {
-
-    public static final File EXPECTED_OUTPUT = new File("src/test/resources/output.txt");
-    public static final String ENCODING = "UTF-8";
-    public static final File OUTPUT_FILE = new File("target/NameAnnotationPipeline.txt");
+    private static final File OUTPUT_FILE = new File(EmbeddingsPipeline.TARGET_DIR, "embeddings");
 
     @Test
-    public void test()
+    public void testMain()
             throws Exception
     {
-        NameAnnotationPipeline.main(new String[] {});
-        assertEquals(
-                FileUtils.readFileToString(EXPECTED_OUTPUT, ENCODING).trim(),
-                FileUtils.readFileToString(OUTPUT_FILE, ENCODING).trim());
+        int expectedSize = 28;
+        int dimensionality = 50;
+        OUTPUT_FILE.delete();
+
+        EmbeddingsPipeline.main(new String[] {});
+        List<String> output = Files.readAllLines(OUTPUT_FILE.toPath());
+
+        assertEquals(expectedSize, output.size());
+        assertTrue(output.stream().allMatch(line -> line.split(" ").length == dimensionality + 1));
     }
 }

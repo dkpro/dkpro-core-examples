@@ -18,7 +18,7 @@
 package de.tudarmstadt.ukp.dkpro.core.examples.lda;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.topicmodel.MalletTopicModelInferencer;
+import de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelInferencer;
 import de.tudarmstadt.ukp.dkpro.core.mallet.type.TopicDistribution;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
@@ -44,13 +44,13 @@ import static org.apache.uima.fit.util.JCasUtil.select;
  * <li>A reader to read the input texts from disk: {@link TextReader}</li>
  * <li>A segmenter to split text into sentences and tokens: {@link OpenNlpSegmenter}</li>
  * <li>A stop word remover: {@link StopWordRemover}</li>
- * <li>The Mallet LDA topic model estimator: {@link MalletTopicModelInferencer}</li>
+ * <li>The Mallet LDA topic model estimator: {@link LdaTopicModelInferencer}</li>
  * <li>A {@link CasDumpWriter} that writes all annotations, including the topic proportions, to the console.</li>
  * </ol>
  * <p>
  * The model file is expected to be located in {@code target/model.mallet}. If you run the {@link LdaEstimationPipeline},
  * it will create a suitable file there. The model has to be in the {@link cc.mallet.topics.ParallelTopicModel} format
- * as created by the DKPro {@link MalletTopicModelInferencer} or by Mallet directly.
+ * as created by the DKPro {@link LdaTopicModelInferencer} or by Mallet directly.
  * <p>
  * The topic distributions are stored as document-wide {@code TopicDistribution} annotations in a double array where
  * each entry represents a topic weight.
@@ -79,8 +79,8 @@ public class LdaInferencePipeline
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
-        AnalysisEngineDescription lda = createEngineDescription(MalletTopicModelInferencer.class,
-                MalletTopicModelInferencer.PARAM_MODEL_LOCATION, MODEL_FILE);
+        AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelInferencer.class,
+                LdaTopicModelInferencer.PARAM_MODEL_LOCATION, MODEL_FILE);
 
         for (JCas jcas : SimplePipeline.iteratePipeline(reader, segmenter, stopwordRemover, lda)) {
             select(jcas, TopicDistribution.class).forEach(System.out::println);

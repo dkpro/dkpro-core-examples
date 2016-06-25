@@ -15,11 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package de.tudarmstadt.ukp.dkpro.examples.tokenizedwriter;
+package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.io.text.TokenizedTextWriter;
+import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
+import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
@@ -27,36 +28,37 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
-/**
- * This pipeline demonstrates the usage of {@link TokenizedTextWriter}. It reads the given text
- * files, segments it (tokens and sentences, and writes all documents to a target file, one
- * sentence per line, tokens separated by whitespaces.
- * <p>
- * The output format can immediately be fed to e.g. Word2Vec.
- * </p>
- */
-public class TokenizedWriterPipeline
+public class EmbeddingsPipeline
 {
-    protected static final File TARGET_FILE = new File("target/tokenized.txt");
+    protected static final File TARGET_DIR = new File("target/");
     private static final String LANGUAGE = "en";
-    private static final String SOURCE_DIR = "src/main/resources/texts/*";
-    private static final boolean SINGULAR_TARGET = true;
+    private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
+            .getResource("stopwords_en.txt");
+    private static final String DEFAULT_SOURCE = "src/main/resources/texts/*";
+    private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
 
     public static void main(String[] args)
             throws IOException, UIMAException
     {
+        String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE;
+
         CollectionReaderDescription reader = createReaderDescription(TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, SOURCE_DIR,
+                TextReader.PARAM_SOURCE_LOCATION, inputDir,
                 TextReader.PARAM_LANGUAGE, LANGUAGE);
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
-        AnalysisEngineDescription writer = createEngineDescription(TokenizedTextWriter.class,
-                TokenizedTextWriter.PARAM_TARGET_LOCATION, TARGET_FILE,
-                TokenizedTextWriter.PARAM_SINGULAR_TARGET, SINGULAR_TARGET);
+        AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
+                StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
+        AnalysisEngineDescription embeddings = createEngineDescription(
+                WordEmbeddingsEstimator.class,
+                WordEmbeddingsEstimator.PARAM_TARGET_LOCATION, TARGET_DIR,
+                WordEmbeddingsEstimator.PARAM_NUM_THREADS, NUM_THREADS,
+                WordEmbeddingsEstimator.PARAM_OVERWRITE, true);
 
-        SimplePipeline.runPipeline(reader, segmenter, writer);
+        SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, embeddings);
     }
 }
