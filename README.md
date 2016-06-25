@@ -17,7 +17,7 @@ in documents. Note that the API and hence the examples have changed in v1.9.x.
 by whitespaces, one sentence per line; can be used to prepare data for external tools such as Word2Vec. 
 * **stanfordcorecomponents-gpl**: demonstrates the usage of the Stanford Core NLP tools; mind that they are
  GPL-licensed!
-* (new since 1.9.x branch) **wordembeddings-asl**: a pipeline that shows how to generate [word embeddings](https://en.wikipedia.org/wiki/Word_embedding) from a custom corpus and how to use them with an annotator.
+* **wordembeddings-asl**: a pipeline that shows how to generate [word embeddings](https://en.wikipedia.org/wiki/Word_embedding) from a custom corpus and how to use them with an annotator.
 
 ## Contact
 
