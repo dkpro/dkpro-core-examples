@@ -17,6 +17,7 @@
  ******************************************************************************/
 package de.tudarmstadt.ukp.dkpro.core.examples.lda;
 
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
@@ -76,7 +77,10 @@ public class LdaEstimationPipeline
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelEstimator.class,
                 LdaTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
-                LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS);
+                LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS,
+                LdaTopicModelEstimator.PARAM_N_TOPICS, 10,
+                LdaTopicModelEstimator.PARAM_COVERING_ANNOTATION_TYPE,
+                Sentence.class.getCanonicalName());
 
         SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda);
     }
