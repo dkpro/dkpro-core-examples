@@ -26,6 +26,7 @@
     <module>lda-asl</module>
     <module>tokenizedwriter-asl</module>
     <module>nameannotation-asl</module>
+    <module>phrasedetector-asl</module>
     <module>stanfordcorecomponents-gpl</module>
     <module>wordembeddings-asl</module>
   </modules>
