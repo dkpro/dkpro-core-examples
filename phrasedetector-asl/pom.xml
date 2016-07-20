@@ -40,7 +40,6 @@
     <dependency>
       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
       <artifactId>de.tudarmstadt.ukp.dkpro.core.frequency-asl</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
