@@ -54,6 +54,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  * {@link de.tudarmstadt.ukp.dkpro.core.mallet.lda.LdaTopicModelEstimator} as well as
  * in Mallet directly.
  * </p>
+ * @see LdaInferencePipeline
  */
 public class LdaEstimationPipeline
 {
@@ -63,11 +64,15 @@ public class LdaEstimationPipeline
             .getResource("stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
     private static final int ITERATIONS = 100;
+    private static final int N_TOPICS = 10;
 
     public static void main(String[] args)
             throws IOException, UIMAException
     {
         String inputDir = args.length > 0 ? args[0] : DEFAULT_SOURCE_DIR;
+
+        /* this is the annotation type that determines the "document" unit size */
+        String coveringType = Sentence.class.getCanonicalName();
 
         CollectionReaderDescription reader = createReaderDescription(TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, inputDir,
@@ -78,9 +83,8 @@ public class LdaEstimationPipeline
         AnalysisEngineDescription lda = createEngineDescription(LdaTopicModelEstimator.class,
                 LdaTopicModelEstimator.PARAM_TARGET_LOCATION, TARGET_FILE,
                 LdaTopicModelEstimator.PARAM_N_ITERATIONS, ITERATIONS,
-                LdaTopicModelEstimator.PARAM_N_TOPICS, 10,
-                LdaTopicModelEstimator.PARAM_COVERING_ANNOTATION_TYPE,
-                Sentence.class.getCanonicalName());
+                LdaTopicModelEstimator.PARAM_N_TOPICS, N_TOPICS,
+                LdaTopicModelEstimator.PARAM_COVERING_ANNOTATION_TYPE, coveringType);
 
         SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, lda);
     }

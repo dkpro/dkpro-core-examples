@@ -59,10 +59,13 @@ import static org.apache.uima.fit.util.JCasUtil.select;
  * does not produce meaningful results. However, the example pipeline can be used as is for different
  * models and input sources.
  * </p>
+ * @see LdaEstimationPipeline
  */
 public class LdaInferencePipeline
 {
+    /* the location of the previously created model file */
     private static final File MODEL_FILE = new File("target/model.mallet");
+
     private static final String LANGUAGE = "en";
     private static final URL STOPWORD_FILE = LdaInferencePipeline.class.getClassLoader()
             .getResource("stopwords_en.txt");
