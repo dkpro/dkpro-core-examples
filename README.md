@@ -18,6 +18,7 @@ by whitespaces, one sentence per line; can be used to prepare data for external 
 * **stanfordcorecomponents-gpl**: demonstrates the usage of the Stanford Core NLP tools; mind that they are
  GPL-licensed!
 * **wordembeddings-asl**: a pipeline that shows how to generate [word embeddings](https://en.wikipedia.org/wiki/Word_embedding) from a custom corpus and how to use them with an annotator.
+* **phraseannotator-asl**: pipelines demonstrating the usage of the classes `FrequencyCounter` and `PhraseAnnotator` to detect lexical phrases in a frequency-based manner.
 
 ## Contact
 
