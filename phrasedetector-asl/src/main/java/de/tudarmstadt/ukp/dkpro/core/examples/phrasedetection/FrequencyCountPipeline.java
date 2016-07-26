@@ -49,7 +49,7 @@ public class FrequencyCountPipeline
     public static boolean LOWERCASE = true;
 
     /* target file, compression is determined by the file name suffix */
-    public static String COUNTS_FILE = "target/counts.xz";
+    public static String COUNTS_FILE = "target/counts.txt";
 
     public static void main(String[] args)
             throws UIMAException, IOException

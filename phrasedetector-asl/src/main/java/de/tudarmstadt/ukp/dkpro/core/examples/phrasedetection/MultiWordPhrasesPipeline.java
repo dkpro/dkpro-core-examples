@@ -62,8 +62,8 @@ public class MultiWordPhrasesPipeline
     private static final int MIN_COUNT = 2;
 
     /* count files for the 1st and 2nd iteration respectively */
-    private static final String COUNTS1_PATH = "target/counts1.txt";
-    private static final String COUNTS2_PATH = "target/counts2.txt";
+    protected static final String COUNTS1_PATH = "target/counts1.txt";
+    protected static final String COUNTS2_PATH = "target/counts2.txt";
 
     /* path for storing binary cas files in order to pass annotations made in the first iteration
     to the second iteration */
