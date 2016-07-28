@@ -19,7 +19,6 @@ package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import org.junit.Test;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -28,18 +27,16 @@ import static org.junit.Assert.assertTrue;
 
 public class LemmaEmbeddingsPipelineTest
 {
-    private static final File OUTPUT_FILE = new File(EmbeddingsPipeline.TARGET_DIR, "embeddings");
-
     @Test
     public void testMain()
             throws Exception
     {
         int expectedSize = 27;
         int dimensionality = 50;
-        OUTPUT_FILE.delete();
+        LemmaEmbeddingsPipeline.TARGET_FILE.delete();
 
         LemmaEmbeddingsPipeline.main(new String[] {});
-        List<String> output = Files.readAllLines(OUTPUT_FILE.toPath());
+        List<String> output = Files.readAllLines(LemmaEmbeddingsPipeline.TARGET_FILE.toPath());
 
         assertEquals(expectedSize, output.size());
         assertTrue(output.stream().allMatch(line -> line.split(" ").length == dimensionality + 1));

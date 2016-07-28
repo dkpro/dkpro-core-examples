@@ -35,7 +35,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 
 public class EmbeddingsPipeline
 {
-    protected static final File TARGET_DIR = new File("target/");
+    protected static final File TARGET_FILE = new File("target/embeddings.txt");
     private static final String LANGUAGE = "en";
     private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
             .getResource("stopwords_en.txt");
@@ -55,7 +55,7 @@ public class EmbeddingsPipeline
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription embeddings = createEngineDescription(
                 WordEmbeddingsTrainer.class,
-                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_DIR,
+                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
                 WordEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
                 WordEmbeddingsTrainer.PARAM_OVERWRITE, true);
 

@@ -38,7 +38,7 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
 
 public class LemmaEmbeddingsPipeline
 {
-    private static final File TARGET_DIR = new File("target/");
+    public static final File TARGET_FILE = new File("target/lemma_embeddings.txt");
     private static final String LANGUAGE = "en";
     private static final URL STOPWORD_FILE = EmbeddingsPipeline.class.getClassLoader()
             .getResource("stopwords_en.txt");
@@ -61,7 +61,7 @@ public class LemmaEmbeddingsPipeline
         AnalysisEngineDescription lemmatizer = createEngineDescription(StanfordLemmatizer.class);
         AnalysisEngineDescription embeddings = createEngineDescription(
                 WordEmbeddingsTrainer.class,
-                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_DIR,
+                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
                 WordEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
                 WordEmbeddingsTrainer.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
 
