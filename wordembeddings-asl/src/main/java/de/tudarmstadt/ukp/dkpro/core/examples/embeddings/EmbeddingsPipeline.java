@@ -18,7 +18,7 @@
 package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsTrainer;
+import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.MalletEmbeddingsTrainer;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
@@ -54,10 +54,10 @@ public class EmbeddingsPipeline
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription embeddings = createEngineDescription(
-                WordEmbeddingsTrainer.class,
-                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
-                WordEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
-                WordEmbeddingsTrainer.PARAM_OVERWRITE, true);
+                MalletEmbeddingsTrainer.class,
+                MalletEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
+                MalletEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
+                MalletEmbeddingsTrainer.PARAM_OVERWRITE, true);
 
         SimplePipeline.runPipeline(reader, segmenter, stopwordRemover, embeddings);
     }

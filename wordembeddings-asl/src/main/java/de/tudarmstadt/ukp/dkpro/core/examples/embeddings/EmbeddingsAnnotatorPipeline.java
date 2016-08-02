@@ -18,7 +18,7 @@
 package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsAnnotator;
+import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.MalletEmbeddingsAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 import org.apache.uima.UIMAException;
@@ -56,8 +56,8 @@ public class EmbeddingsAnnotatorPipeline
         AnalysisEngineDescription stopwordRemover = createEngineDescription(StopWordRemover.class,
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription embeddingsAnnotator = createEngineDescription(
-                WordEmbeddingsAnnotator.class,
-                WordEmbeddingsAnnotator.PARAM_MODEL_LOCATION, EMBEDDINGS_FILE);
+                MalletEmbeddingsAnnotator.class,
+                MalletEmbeddingsAnnotator.PARAM_MODEL_LOCATION, EMBEDDINGS_FILE);
         AnalysisEngineDescription writer = createEngineDescription(CasDumpWriter.class,
                 CasDumpWriter.PARAM_OUTPUT_FILE, OUTPUT_FILE);
 

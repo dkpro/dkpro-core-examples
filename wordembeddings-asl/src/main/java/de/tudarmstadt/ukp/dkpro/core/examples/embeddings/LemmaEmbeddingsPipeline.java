@@ -19,7 +19,7 @@ package de.tudarmstadt.ukp.dkpro.core.examples.embeddings;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.WordEmbeddingsTrainer;
+import de.tudarmstadt.ukp.dkpro.core.mallet.wordembeddings.MalletEmbeddingsTrainer;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
@@ -60,10 +60,10 @@ public class LemmaEmbeddingsPipeline
                 StopWordRemover.PARAM_MODEL_LOCATION, STOPWORD_FILE);
         AnalysisEngineDescription lemmatizer = createEngineDescription(StanfordLemmatizer.class);
         AnalysisEngineDescription embeddings = createEngineDescription(
-                WordEmbeddingsTrainer.class,
-                WordEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
-                WordEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
-                WordEmbeddingsTrainer.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
+                MalletEmbeddingsTrainer.class,
+                MalletEmbeddingsTrainer.PARAM_TARGET_LOCATION, TARGET_FILE,
+                MalletEmbeddingsTrainer.PARAM_NUM_THREADS, NUM_THREADS,
+                MalletEmbeddingsTrainer.PARAM_TOKEN_FEATURE_PATH, FEATURE_PATH);
 
         SimplePipeline
                 .runPipeline(reader, segmenter, posTagger, lemmatizer, stopwordRemover, embeddings);
