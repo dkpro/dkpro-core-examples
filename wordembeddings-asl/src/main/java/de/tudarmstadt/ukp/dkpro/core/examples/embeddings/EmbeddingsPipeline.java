@@ -33,6 +33,10 @@ import java.net.URL;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
+/**
+ * A pipeline that generates word embeddings based on tokens.
+ * The token annotations are the default used by the {@link MalletEmbeddingsTrainer}.
+ */
 public class EmbeddingsPipeline
 {
     protected static final File TARGET_FILE = new File("target/embeddings.txt");

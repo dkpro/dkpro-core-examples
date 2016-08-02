@@ -36,6 +36,11 @@ import java.net.URL;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
+/**
+ * A pipeline that estimates word embeddings based on the lemmas, annotated in a previous step.
+ * Here, lemmatization is done using the {@link StanfordLemmatizer}.
+ * The {@link #FEATURE_PATH} provides the reference to the annotation that is used by the embeddings trainer ({@link MalletEmbeddingsTrainer}).
+ */
 public class LemmaEmbeddingsPipeline
 {
     public static final File TARGET_FILE = new File("target/lemma_embeddings.txt");
@@ -44,6 +49,9 @@ public class LemmaEmbeddingsPipeline
             .getResource("stopwords_en.txt");
     private static final String DEFAULT_SOURCE_DIR = "src/main/resources/texts/*";
     private static final int NUM_THREADS = 1;   // do not use multiple threads for very small (test) datasets or the estimator may run infinitely!
+    /**
+     * Defines the feature path to the lemmas that are used by the embeddings trained.
+     */
     private static final String FEATURE_PATH = Token.class.getTypeName() + "/lemma/value";
 
     public static void main(String[] args)

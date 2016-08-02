@@ -34,6 +34,12 @@ import java.net.URL;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 
+/**
+ * A pipeline that reads a previously created embeddings file and annotates each token with
+ * a corresponding double array so that they can be used for further processing.
+ *
+ * @see EmbeddingsPipeline
+ */
 public class EmbeddingsAnnotatorPipeline
 {
     protected static final File OUTPUT_FILE = new File("target/annotator_output.txt");
