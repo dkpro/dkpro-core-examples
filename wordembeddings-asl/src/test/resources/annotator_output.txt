@@ -40,6 +40,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -51,6 +52,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [It comprises a few sentences.]
 Sentence
    sofa: _InitialView
@@ -76,6 +78,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [few]
 WordEmbedding
    sofa: _InitialView
@@ -95,6 +98,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [sentences]
 WordEmbedding
    sofa: _InitialView
@@ -114,6 +118,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -125,6 +130,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [They may or may not be separarated by line breaks.]
 Sentence
    sofa: _InitialView
@@ -150,6 +156,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [may]
 WordEmbedding
    sofa: _InitialView
@@ -169,6 +176,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [separarated]
 WordEmbedding
    sofa: _InitialView
@@ -188,6 +196,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [line]
 WordEmbedding
    sofa: _InitialView
@@ -207,6 +216,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [breaks]
 WordEmbedding
    sofa: _InitialView
@@ -226,6 +236,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -237,6 +248,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 -------- View _InitialView end ----------------------------------
 
 ======== CAS 0 end ==================================
@@ -285,6 +297,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [document]
 WordEmbedding
    sofa: _InitialView
@@ -304,6 +317,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [mentioning]
 WordEmbedding
    sofa: _InitialView
@@ -323,6 +337,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [term]
 WordEmbedding
    sofa: _InitialView
@@ -342,6 +357,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 ['sentences]
 WordEmbedding
    sofa: _InitialView
@@ -361,6 +377,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [']
 Token
    sofa: _InitialView
@@ -372,6 +389,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -383,6 +401,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [However, for topic modelling, this amount of
 data does not make much sense.]
 Sentence
@@ -409,6 +428,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [,]
 Token
    sofa: _InitialView
@@ -420,6 +440,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [topic]
 WordEmbedding
    sofa: _InitialView
@@ -439,6 +460,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [modelling]
 WordEmbedding
    sofa: _InitialView
@@ -458,6 +480,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [,]
 Token
    sofa: _InitialView
@@ -469,6 +492,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [amount]
 WordEmbedding
    sofa: _InitialView
@@ -488,6 +512,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [data]
 WordEmbedding
    sofa: _InitialView
@@ -507,6 +532,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [does]
 WordEmbedding
    sofa: _InitialView
@@ -526,6 +552,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [make]
 WordEmbedding
    sofa: _InitialView
@@ -545,6 +572,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [much]
 WordEmbedding
    sofa: _InitialView
@@ -564,6 +592,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [sense]
 WordEmbedding
    sofa: _InitialView
@@ -583,6 +612,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -594,6 +624,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [It is purely intended to provide a little amount of data for examplification.]
 Sentence
    sofa: _InitialView
@@ -619,6 +650,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [intended]
 WordEmbedding
    sofa: _InitialView
@@ -638,6 +670,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [provide]
 WordEmbedding
    sofa: _InitialView
@@ -657,6 +690,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [little]
 WordEmbedding
    sofa: _InitialView
@@ -676,6 +710,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [amount]
 WordEmbedding
    sofa: _InitialView
@@ -695,6 +730,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [data]
 WordEmbedding
    sofa: _InitialView
@@ -714,6 +750,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [examplification]
 WordEmbedding
    sofa: _InitialView
@@ -733,6 +770,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -744,6 +782,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [I hope it helps.]
 Sentence
    sofa: _InitialView
@@ -761,6 +800,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [hope]
 WordEmbedding
    sofa: _InitialView
@@ -780,6 +820,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [helps]
 WordEmbedding
    sofa: _InitialView
@@ -799,6 +840,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 [.]
 Token
    sofa: _InitialView
@@ -810,6 +852,7 @@ Token
    pos: <null>
    morph: <null>
    id: <null>
+   form: <null>
 -------- View _InitialView end ----------------------------------
 
 ======== CAS 1 end ==================================
