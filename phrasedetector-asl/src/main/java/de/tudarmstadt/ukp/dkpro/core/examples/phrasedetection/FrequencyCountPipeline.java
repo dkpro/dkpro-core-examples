@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
  * Copyright 2016
  * Ubiquitous Knowledge Processing (UKP) Lab
  * Technische Universität Darmstadt
@@ -14,7 +14,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ */
 package de.tudarmstadt.ukp.dkpro.core.examples.phrasedetection;
 
 import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.FrequencyCounter;
@@ -40,23 +40,25 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDe
  */
 public class FrequencyCountPipeline
 {
-    public static final String SOURCE_LOCATION = "src/main/resources/texts/*";
+    static final String SOURCE_LOCATION = "src/main/resources/texts/*";
 
     /* ignore all n-grams that occur less frequently */
-    public static final int MIN_COUNT = 3;
+    static final int MIN_COUNT = 3;
 
     /* lowercase all tokens. Important: set this parameter in the phrase annotator to the same value! */
-    public static boolean LOWERCASE = true;
+    static boolean LOWERCASE = true;
 
     /* target file, compression is determined by the file name suffix */
-    public static String COUNTS_FILE = "target/counts.txt";
+    static String COUNTS_FILE = "target/counts.txt";
 
     public static void main(String[] args)
             throws UIMAException, IOException
     {
         CollectionReaderDescription reader = createReaderDescription(TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, SOURCE_LOCATION,
-                TextReader.PARAM_LANGUAGE, "en");
+                TextReader.PARAM_LANGUAGE, "en",
+                TextReader.PARAM_LOG_FREQ, 10
+        );
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
         AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
                 FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS_FILE,
