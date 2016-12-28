@@ -103,9 +103,9 @@ public class MultiWordPhrasesPipeline
         {
             /* read previously processed documents */
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
-                    TextReader.PARAM_LANGUAGE, "en",
-                    TextReader.PARAM_LOG_FREQ, 10);
+                    BinaryCasReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    BinaryCasReader.PARAM_LANGUAGE, "en",
+                    BinaryCasReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription phraseAnnotator = createEngineDescription(
                     PhraseAnnotator.class,
                     PhraseAnnotator.PARAM_MODEL_LOCATION, COUNTS1_PATH,
@@ -127,9 +127,9 @@ public class MultiWordPhrasesPipeline
         {
             /* load binary files with previously create phrase (and all other) annotations */
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
-                    TextReader.PARAM_LANGUAGE, "en",
-                    TextReader.PARAM_LOG_FREQ, 10);
+                    BinaryCasReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    BinaryCasReader.PARAM_LANGUAGE, "en",
+                    BinaryCasReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
                     FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS2_PATH,
                     FrequencyCounter.PARAM_SORT_BY_COUNT, true,
@@ -146,9 +146,9 @@ public class MultiWordPhrasesPipeline
         /* annotate phrases where each phrase may span across one or multiple tokens */
         {
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
-                    TextReader.PARAM_LANGUAGE, "en",
-                    TextReader.PARAM_LOG_FREQ, 10);
+                    BinaryCasReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    BinaryCasReader.PARAM_LANGUAGE, "en",
+                    BinaryCasReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription phraseAnnotator = createEngineDescription(
                     PhraseAnnotator.class,
                     PhraseAnnotator.PARAM_MODEL_LOCATION, COUNTS2_PATH,
