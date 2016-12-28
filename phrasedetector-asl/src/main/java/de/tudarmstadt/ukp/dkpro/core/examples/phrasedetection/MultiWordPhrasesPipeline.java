@@ -62,8 +62,8 @@ public class MultiWordPhrasesPipeline
     private static final int MIN_COUNT = 2;
 
     /* count files for the 1st and 2nd iteration respectively */
-    protected static final String COUNTS1_PATH = "target/counts1.txt";
-    protected static final String COUNTS2_PATH = "target/counts2.txt";
+    static final String COUNTS1_PATH = "target/counts1.txt";
+    static final String COUNTS2_PATH = "target/counts2.txt";
 
     /* path for storing binary cas files in order to pass annotations made in the first iteration
     to the second iteration */
@@ -82,7 +82,8 @@ public class MultiWordPhrasesPipeline
         {
             CollectionReaderDescription reader = createReaderDescription(TextReader.class,
                     TextReader.PARAM_SOURCE_LOCATION, TEXT_PATH,
-                    TextReader.PARAM_LANGUAGE, "en");
+                    TextReader.PARAM_LANGUAGE, "en",
+                    TextReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
             AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
                     FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS1_PATH,
@@ -102,8 +103,9 @@ public class MultiWordPhrasesPipeline
         {
             /* read previously processed documents */
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*.bin",
-                    TextReader.PARAM_LANGUAGE, "en");
+                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    TextReader.PARAM_LANGUAGE, "en",
+                    TextReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription phraseAnnotator = createEngineDescription(
                     PhraseAnnotator.class,
                     PhraseAnnotator.PARAM_MODEL_LOCATION, COUNTS1_PATH,
@@ -125,8 +127,9 @@ public class MultiWordPhrasesPipeline
         {
             /* load binary files with previously create phrase (and all other) annotations */
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*.bin",
-                    TextReader.PARAM_LANGUAGE, "en");
+                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    TextReader.PARAM_LANGUAGE, "en",
+                    TextReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
                     FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS2_PATH,
                     FrequencyCounter.PARAM_SORT_BY_COUNT, true,
@@ -143,8 +146,9 @@ public class MultiWordPhrasesPipeline
         /* annotate phrases where each phrase may span across one or multiple tokens */
         {
             CollectionReaderDescription reader = createReaderDescription(BinaryCasReader.class,
-                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*.bin",
-                    TextReader.PARAM_LANGUAGE, "en");
+                    TextReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
+                    TextReader.PARAM_LANGUAGE, "en",
+                    TextReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription phraseAnnotator = createEngineDescription(
                     PhraseAnnotator.class,
                     PhraseAnnotator.PARAM_MODEL_LOCATION, COUNTS2_PATH,
