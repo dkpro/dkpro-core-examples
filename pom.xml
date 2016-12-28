@@ -59,12 +59,6 @@
       <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local
       </url>
     </repository>
-    <repository>
-      <id>ukp-oss</id>
-      <name>ukp-oss-releases</name>
-      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-ext-releases-local</url>
-    </repository>
-
 
     <!-- For DKPro Core SNAPSHOTs -->
     <repository>

@@ -23,6 +23,15 @@
     </dependencies>
   </dependencyManagement>
 
+  <!-- Repository declaration temporarily needed until CoreNLP is available from Maven Central -->
+  <repositories>
+    <repository>
+      <id>ukp-oss</id>
+      <name>ukp-oss-releases</name>
+      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-ext-releases-local</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
