@@ -71,6 +71,13 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    
+    <!-- Repository declaration temporarily needed until CoreNLP is available from Maven Central -->
+    <repository>
+      <id>ukp-oss</id>
+      <name>ukp-oss-releases</name>
+      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
+    </repository>
   </repositories>
 
   <dependencyManagement>
