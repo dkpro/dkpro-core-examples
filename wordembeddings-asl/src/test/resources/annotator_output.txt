@@ -41,6 +41,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -53,6 +54,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [It comprises a few sentences.]
 Sentence
    sofa: _InitialView
@@ -79,6 +81,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [few]
 WordEmbedding
    sofa: _InitialView
@@ -99,6 +102,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [sentences]
 WordEmbedding
    sofa: _InitialView
@@ -119,6 +123,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -131,6 +136,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [They may or may not be separarated by line breaks.]
 Sentence
    sofa: _InitialView
@@ -157,6 +163,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [may]
 WordEmbedding
    sofa: _InitialView
@@ -177,6 +184,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [separarated]
 WordEmbedding
    sofa: _InitialView
@@ -197,6 +205,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [line]
 WordEmbedding
    sofa: _InitialView
@@ -217,6 +226,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [breaks]
 WordEmbedding
    sofa: _InitialView
@@ -237,6 +247,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -249,6 +260,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 -------- View _InitialView end ----------------------------------
 
 ======== CAS 0 end ==================================
@@ -298,6 +310,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [document]
 WordEmbedding
    sofa: _InitialView
@@ -318,6 +331,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [mentioning]
 WordEmbedding
    sofa: _InitialView
@@ -338,6 +352,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [term]
 WordEmbedding
    sofa: _InitialView
@@ -358,6 +373,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 ['sentences]
 WordEmbedding
    sofa: _InitialView
@@ -378,6 +394,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [']
 Token
    sofa: _InitialView
@@ -390,6 +407,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -402,6 +420,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [However, for topic modelling, this amount of
 data does not make much sense.]
 Sentence
@@ -429,6 +448,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [,]
 Token
    sofa: _InitialView
@@ -441,6 +461,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [topic]
 WordEmbedding
    sofa: _InitialView
@@ -461,6 +482,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [modelling]
 WordEmbedding
    sofa: _InitialView
@@ -481,6 +503,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [,]
 Token
    sofa: _InitialView
@@ -493,6 +516,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [amount]
 WordEmbedding
    sofa: _InitialView
@@ -513,6 +537,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [data]
 WordEmbedding
    sofa: _InitialView
@@ -533,6 +558,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [does]
 WordEmbedding
    sofa: _InitialView
@@ -553,6 +579,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [make]
 WordEmbedding
    sofa: _InitialView
@@ -573,6 +600,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [much]
 WordEmbedding
    sofa: _InitialView
@@ -593,6 +621,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [sense]
 WordEmbedding
    sofa: _InitialView
@@ -613,6 +642,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -625,6 +655,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [It is purely intended to provide a little amount of data for examplification.]
 Sentence
    sofa: _InitialView
@@ -651,6 +682,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [intended]
 WordEmbedding
    sofa: _InitialView
@@ -671,6 +703,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [provide]
 WordEmbedding
    sofa: _InitialView
@@ -691,6 +724,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [little]
 WordEmbedding
    sofa: _InitialView
@@ -711,6 +745,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [amount]
 WordEmbedding
    sofa: _InitialView
@@ -731,6 +766,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [data]
 WordEmbedding
    sofa: _InitialView
@@ -751,6 +787,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [examplification]
 WordEmbedding
    sofa: _InitialView
@@ -771,6 +808,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -783,6 +821,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [I hope it helps.]
 Sentence
    sofa: _InitialView
@@ -801,6 +840,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [hope]
 WordEmbedding
    sofa: _InitialView
@@ -821,6 +861,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [helps]
 WordEmbedding
    sofa: _InitialView
@@ -841,6 +882,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 [.]
 Token
    sofa: _InitialView
@@ -853,6 +895,7 @@ Token
    morph: <null>
    id: <null>
    form: <null>
+   syntacticFunction: <null>
 -------- View _InitialView end ----------------------------------
 
 ======== CAS 1 end ==================================

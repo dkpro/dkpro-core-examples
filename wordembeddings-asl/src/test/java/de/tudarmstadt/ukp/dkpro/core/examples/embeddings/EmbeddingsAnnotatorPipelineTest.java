@@ -21,8 +21,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class EmbeddingsAnnotatorPipelineTest
@@ -31,12 +29,13 @@ public class EmbeddingsAnnotatorPipelineTest
 
     @Test
     public void testMain()
-            throws Exception
+        throws Exception
     {
         EmbeddingsAnnotatorPipeline.OUTPUT_FILE.delete();
-        List<String> expectedOutput = Files.readAllLines(EXPECTED_FILE.toPath());
+        String expectedOutput = new String(Files.readAllBytes(EXPECTED_FILE.toPath()), "UTF-8");
         EmbeddingsAnnotatorPipeline.main(new String[] {});
-        List<String> output = Files.readAllLines(EmbeddingsAnnotatorPipeline.OUTPUT_FILE.toPath());
+        String output = new String(
+                Files.readAllBytes(EmbeddingsAnnotatorPipeline.OUTPUT_FILE.toPath()), "UTF-8");
         assertEquals(expectedOutput, output);
     }
 }

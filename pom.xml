@@ -1,27 +1,31 @@
 <!--
-	Copyright 2016
-	Ubiquitous Knowledge Processing (UKP) Lab
-	Technische Universität Darmstadt
+  Copyright 2016
+  Ubiquitous Knowledge Processing (UKP) Lab
+  Technische Universität Darmstadt
 
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
 -->
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>dkpro-core-examples</artifactId>
   <version>1.9.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <properties>
+    <dkpro.core.version>${project.version}</dkpro.core.version>
+    <uima.version>2.9.0</uima.version>
+    <uimafit.version>2.2.0</uimafit.version>
+  </properties>
   <modules>
     <module>lda-asl</module>
     <module>tokenizedwriter-asl</module>
@@ -36,13 +40,6 @@
     <version>15</version>
   </parent>
   <name>DKPro-Core Examples</name>
-  <licenses>
-    <license>
-      <name>Apache License Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
   <issueManagement>
     <system>GitHub Issues</system>
     <url>https://github.com/dkpro/dkpro-core-examples/issues</url>
@@ -71,13 +68,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
-    
-    <!-- Repository declaration temporarily needed until CoreNLP is available from Maven Central -->
-    <repository>
-      <id>ukp-oss</id>
-      <name>ukp-oss-releases</name>
-      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
-    </repository>
   </repositories>
 
   <dependencyManagement>
@@ -85,19 +75,36 @@
       <dependency>
         <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
         <artifactId>de.tudarmstadt.ukp.dkpro.core-asl</artifactId>
-        <version>${project.version}</version>
+        <version>${dkpro.core.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+        <artifactId>de.tudarmstadt.ukp.dkpro.core-gpl</artifactId>
+        <version>${dkpro.core.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.uima</groupId>
+        <artifactId>uimaj-core</artifactId>
+        <version>${uima.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.uima</groupId>
+        <artifactId>uimaj-document-annotation</artifactId>
+        <version>${uima.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.uima</groupId>
+        <artifactId>uimafit-core</artifactId>
+        <version>${uimafit.version}</version>
       </dependency>
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>2.5</version>
-      </dependency>
-      <dependency>
-        <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-        <artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
-        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -122,7 +129,7 @@
         <!--generate types dynamically -->
         <groupId>org.apache.uima</groupId>
         <artifactId>jcasgen-maven-plugin</artifactId>
-        <version>2.8.1</version>
+        <version>${uima.version}</version>
         <configuration>
           <limitToProject>true</limitToProject>
           <typeSystemIncludes>
