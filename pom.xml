@@ -27,6 +27,7 @@
     <uimafit.version>2.2.0</uimafit.version>
   </properties>
   <modules>
+    <module>dl4j-asl</module>
     <module>lda-asl</module>
     <module>tokenizedwriter-asl</module>
     <module>nameannotation-asl</module>
