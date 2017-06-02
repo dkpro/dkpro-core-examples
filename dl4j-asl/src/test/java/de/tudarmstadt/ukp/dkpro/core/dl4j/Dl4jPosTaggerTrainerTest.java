@@ -105,9 +105,9 @@ public class Dl4jPosTaggerTrainerTest
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
         
-        assertEquals(0.670598, results.getFscore(), 0.0001);
-        assertEquals(0.663521, results.getPrecision(), 0.0001);
-        assertEquals(0.677827, results.getRecall(), 0.0001);
+        assertEquals(0.711824, results.getFscore(), 0.0001);
+        assertEquals(0.704313, results.getPrecision(), 0.0001);
+        assertEquals(0.719498, results.getRecall(), 0.0001);
     }
     
     @Test
@@ -149,9 +149,9 @@ public class Dl4jPosTaggerTrainerTest
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
                 
-        assertEquals(0.742180, results.getFscore(), 0.0001);
-        assertEquals(0.734348, results.getPrecision(), 0.0001);
-        assertEquals(0.750181 , results.getRecall(), 0.0001);
+        assertEquals(0.742591, results.getFscore(), 0.0001);
+        assertEquals(0.734754, results.getPrecision(), 0.0001);
+        assertEquals(0.750596, results.getRecall(), 0.0001);
     }
     
     public Result test(String network, String embeddings, int maxTagsetSize, int aEpochs,
