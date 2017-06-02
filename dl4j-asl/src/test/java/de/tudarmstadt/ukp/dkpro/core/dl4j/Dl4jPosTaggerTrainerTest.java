@@ -20,6 +20,8 @@ package de.tudarmstadt.ukp.dkpro.core.dl4j;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.iteratePipeline;
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -68,15 +70,15 @@ public class Dl4jPosTaggerTrainerTest
     public void testLSTM()
             throws Exception
     {
-        String embeddings = "target/glove.6B.50d.dl4jw2v";
+        String embeddings = "target/glove.6B.100d.dl4jw2v";
         
         int embeddingSize = getEmbeddingsSize(embeddings);
         int maxTagsetSize = 70;
         int batchSize = 25;
-        int epochs = 1;
+        int epochs = 2;
         boolean shuffle = true;
-        int iterations = 1;
-        double learningRate = 0.05;
+        int iterations = 2;
+        double learningRate = 0.1;
         
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
@@ -103,23 +105,23 @@ public class Dl4jPosTaggerTrainerTest
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
         
-//        assertEquals(0.690186, results.getFscore(), 0.0001);
-//        assertEquals(0.682902, results.getPrecision(), 0.0001);
-//        assertEquals(0.697626, results.getRecall(), 0.0001);
+        assertEquals(0.670598, results.getFscore(), 0.0001);
+        assertEquals(0.663521, results.getPrecision(), 0.0001);
+        assertEquals(0.677827, results.getRecall(), 0.0001);
     }
     
     @Test
     public void testBidirectonalLSTM()
             throws Exception
     {
-        String embeddings = "target/glove.6B.50d.dl4jw2v";
+        String embeddings = "target/glove.6B.100d.dl4jw2v";
         
         int featuresSize = getEmbeddingsSize(embeddings);
         int maxTagsetSize = 70;
         int batchSize = 25;
-        int epochs = 1;
+        int epochs = 2;
         boolean shuffle = true;
-        int iterations = 1;
+        int iterations = 2;
         double learningRate = 0.1;
         
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
@@ -147,9 +149,9 @@ public class Dl4jPosTaggerTrainerTest
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
                 
-//        assertEquals(0.744026, results.getFscore(), 0.0001);
-//        assertEquals(0.736175, results.getPrecision(), 0.0001);
-//        assertEquals(0.752047, results.getRecall(), 0.0001);
+        assertEquals(0.742180, results.getFscore(), 0.0001);
+        assertEquals(0.734348, results.getPrecision(), 0.0001);
+        assertEquals(0.750181 , results.getRecall(), 0.0001);
     }
     
     public Result test(String network, String embeddings, int maxTagsetSize, int aEpochs,
@@ -239,8 +241,8 @@ public class Dl4jPosTaggerTrainerTest
         DatasetFactory loader = new DatasetFactory(DkproTestContext.getCacheFolder());
         Dataset dsGlove = loader.load("glove.6B-en-20151025");
         
-        File input = dsGlove.getFile("glove/glove.6B.50d.txt");
-        String output = "target/glove.6B.50d.dl4jw2v";
+        File input = dsGlove.getFile("glove/glove.6B.100d.txt");
+        String output = "target/glove.6B.100d.dl4jw2v";
         
         System.out.println("Loading vectors...");
         WordVectors wv = WordVectorSerializer.loadTxtVectors(new FileInputStream(input), false);
