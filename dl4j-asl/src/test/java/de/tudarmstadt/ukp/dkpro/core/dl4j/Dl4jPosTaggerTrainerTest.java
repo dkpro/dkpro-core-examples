@@ -47,6 +47,7 @@ import org.deeplearning4j.nn.weights.WeightInit;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
+import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import de.tudarmstadt.ukp.dkpro.core.api.datasets.Dataset;
@@ -64,13 +65,15 @@ import de.tudarmstadt.ukp.dkpro.core.testing.DkproTestContext;
 
 public class Dl4jPosTaggerTrainerTest
 {
+    private static final String DIM = "50";
+    
     private static Dataset ds;
 
     @Test
     public void testLSTM()
             throws Exception
     {
-        String embeddings = "target/glove.6B.100d.dl4jw2v";
+        String embeddings = "target/glove.6B." + DIM + "d.dl4jw2v";
         
         int embeddingSize = getEmbeddingsSize(embeddings);
         int maxTagsetSize = 70;
@@ -91,12 +94,12 @@ public class Dl4jPosTaggerTrainerTest
                 .learningRate(learningRate)
                 .list()
                 .layer(0, new GravesLSTM.Builder()
-                            .activation("softsign")
+                            .activation(Activation.SOFTSIGN)
                             .nIn(embeddingSize)
                             .nOut(200)
                             .build())
                 .layer(1, new RnnOutputLayer.Builder()
-                            .activation("softmax")
+                            .activation(Activation.SOFTMAX)
                             .lossFunction(LossFunctions.LossFunction.MCXENT)
                             .nIn(200)
                             .nOut(maxTagsetSize)
@@ -105,16 +108,22 @@ public class Dl4jPosTaggerTrainerTest
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
         
-        assertEquals(0.711824, results.getFscore(), 0.0001);
-        assertEquals(0.704313, results.getPrecision(), 0.0001);
-        assertEquals(0.719498, results.getRecall(), 0.0001);
+        // DIM = 50
+        assertEquals(0.413291, results.getFscore(), 0.0001);
+        assertEquals(0.408929, results.getPrecision(), 0.0001);
+        assertEquals(0.417746, results.getRecall(), 0.0001);
+
+        // DIM = 100
+        // assertEquals(0.711824, results.getFscore(), 0.0001);
+        // assertEquals(0.704313, results.getPrecision(), 0.0001);
+        // assertEquals(0.719498, results.getRecall(), 0.0001);
     }
     
     @Test
     public void testBidirectonalLSTM()
             throws Exception
     {
-        String embeddings = "target/glove.6B.100d.dl4jw2v";
+        String embeddings = "target/glove.6B." + DIM + "d.dl4jw2v";
         
         int featuresSize = getEmbeddingsSize(embeddings);
         int maxTagsetSize = 70;
@@ -135,12 +144,12 @@ public class Dl4jPosTaggerTrainerTest
                 .learningRate(learningRate)
                 .list()
                 .layer(0, new GravesBidirectionalLSTM.Builder()
-                                .activation("softsign")
+                                .activation(Activation.SOFTSIGN)
                                 .nIn(featuresSize)
                                 .nOut(200)
                                 .build())
                 .layer(1, new RnnOutputLayer.Builder()
-                                .activation("softmax")
+                                .activation(Activation.SOFTMAX)
                                 .lossFunction(LossFunctions.LossFunction.MCXENT)
                                 .nIn(200)
                                 .nOut(maxTagsetSize)
@@ -148,10 +157,16 @@ public class Dl4jPosTaggerTrainerTest
                 .pretrain(false).backprop(true).build();
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
-                
+
+        // DIM = 50
         assertEquals(0.742591, results.getFscore(), 0.0001);
         assertEquals(0.734754, results.getPrecision(), 0.0001);
         assertEquals(0.750596, results.getRecall(), 0.0001);
+
+        // DIM = 100
+        // assertEquals(0.742591, results.getFscore(), 0.0001);
+        // assertEquals(0.734754, results.getPrecision(), 0.0001);
+        // assertEquals(0.750596, results.getRecall(), 0.0001);
     }
     
     public Result test(String network, String embeddings, int maxTagsetSize, int aEpochs,
@@ -241,8 +256,8 @@ public class Dl4jPosTaggerTrainerTest
         DatasetFactory loader = new DatasetFactory(DkproTestContext.getCacheFolder());
         Dataset dsGlove = loader.load("glove.6B-en-20151025");
         
-        File input = dsGlove.getFile("glove/glove.6B.100d.txt");
-        String output = "target/glove.6B.100d.dl4jw2v";
+        File input = dsGlove.getFile("glove/glove.6B." + DIM + "d.txt");
+        String output = "target/glove.6B." + DIM + "d.dl4jw2v";
         
         System.out.println("Loading vectors...");
         WordVectors wv = WordVectorSerializer.loadTxtVectors(new FileInputStream(input), false);
