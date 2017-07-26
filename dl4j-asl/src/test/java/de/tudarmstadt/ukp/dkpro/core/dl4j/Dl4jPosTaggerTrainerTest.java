@@ -45,6 +45,7 @@ import org.deeplearning4j.nn.conf.layers.GravesLSTM;
 import org.deeplearning4j.nn.conf.layers.RnnOutputLayer;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.nd4j.linalg.activations.Activation;
@@ -63,6 +64,7 @@ import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Reader;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Writer;
 import de.tudarmstadt.ukp.dkpro.core.testing.DkproTestContext;
 
+@Ignore("Uses too much memory on the build server")
 public class Dl4jPosTaggerTrainerTest
 {
     private static final String DIM = "50";

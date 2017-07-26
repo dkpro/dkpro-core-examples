@@ -28,6 +28,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -37,6 +38,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.datasets.Split;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2002Reader;
 import de.tudarmstadt.ukp.dkpro.core.testing.DkproTestContext;
 
+@Ignore("Uses too much memory on the build server")
 public class Dl4jEmbeddingsTrainerTest
 {
     private Dataset ds;
