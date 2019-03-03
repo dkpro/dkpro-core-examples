@@ -21,7 +21,7 @@
   <parent>
     <artifactId>dkpro-core-examples</artifactId>
     <groupId>org.dkpro</groupId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>1.10.0-SNAPSHOT</version>
   </parent>
   <artifactId>lda-asl</artifactId>
   <name>DKPro Core Examples -- LDA</name>

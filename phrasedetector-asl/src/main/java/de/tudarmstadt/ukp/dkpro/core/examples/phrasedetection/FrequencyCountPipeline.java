@@ -17,18 +17,18 @@
  */
 package de.tudarmstadt.ukp.dkpro.core.examples.phrasedetection;
 
-import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.FrequencyCounter;
-import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
-import org.apache.uima.UIMAException;
-import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.collection.CollectionReaderDescription;
-import org.apache.uima.fit.pipeline.SimplePipeline;
+import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
+import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
+import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
 import java.io.IOException;
 
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
-import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
+import org.apache.uima.UIMAException;
+import org.apache.uima.analysis_engine.AnalysisEngineDescription;
+import org.apache.uima.collection.CollectionReaderDescription;
+import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.FrequencyWriter;
+import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 
 /**
  * Count unigram and bigram frequencies in a text collection and store in a file.
@@ -60,12 +60,12 @@ public class FrequencyCountPipeline
                 TextReader.PARAM_LOG_FREQ, 10
         );
         AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
-        AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
-                FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS_FILE,
-                FrequencyCounter.PARAM_SORT_BY_COUNT, true,
-                FrequencyCounter.PARAM_MIN_COUNT, MIN_COUNT,
-                FrequencyCounter.PARAM_LOWERCASE, LOWERCASE);
+        AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyWriter.class,
+                FrequencyWriter.PARAM_TARGET_LOCATION, COUNTS_FILE,
+                FrequencyWriter.PARAM_SORT_BY_COUNT, true,
+                FrequencyWriter.PARAM_MIN_COUNT, MIN_COUNT,
+                FrequencyWriter.PARAM_LOWERCASE, LOWERCASE);
 
-        SimplePipeline.runPipeline(reader, segmenter, freqCounter);
+        runPipeline(reader, segmenter, freqCounter);
     }
 }

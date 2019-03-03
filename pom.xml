@@ -19,12 +19,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>dkpro-core-examples</artifactId>
-  <version>1.9.0-SNAPSHOT</version>
+  <version>1.10.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
-    <dkpro.core.version>${project.version}</dkpro.core.version>
-    <uima.version>2.9.0</uima.version>
-    <uimafit.version>2.2.0</uimafit.version>
+    <dkpro.core.version>1.10.0</dkpro.core.version>
+    <uima.version>2.10.3</uima.version>
+    <uimafit.version>2.4.0</uimafit.version>
+    <!-- 
+      We want to be able to do releases using the release plugin, but the example projects are not
+      meant to be deployed to a repo. So we skip deployment in general for the example projects.
+     -->
+    <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
   <modules>
     <module>dl4j-asl</module>
@@ -38,7 +43,7 @@
   <parent>
     <groupId>org.dkpro</groupId>
     <artifactId>dkpro-parent-pom</artifactId>
-    <version>15</version>
+    <version>20</version>
   </parent>
   <name>DKPro-Core Examples</name>
   <issueManagement>
@@ -153,7 +158,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.8</version>
         <executions>
           <execution>
             <id>addToSourceFolder</id>

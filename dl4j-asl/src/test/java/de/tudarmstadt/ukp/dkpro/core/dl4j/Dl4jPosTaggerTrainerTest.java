@@ -39,16 +39,16 @@ import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.GradientNormalization;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
 import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
-import org.deeplearning4j.nn.conf.Updater;
-import org.deeplearning4j.nn.conf.layers.GravesBidirectionalLSTM;
-import org.deeplearning4j.nn.conf.layers.GravesLSTM;
+import org.deeplearning4j.nn.conf.layers.LSTM;
 import org.deeplearning4j.nn.conf.layers.RnnOutputLayer;
+import org.deeplearning4j.nn.conf.layers.recurrent.Bidirectional;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.nd4j.linalg.activations.Activation;
+import org.nd4j.linalg.learning.config.RmsProp;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 
 import de.tudarmstadt.ukp.dkpro.core.api.datasets.Dataset;
@@ -82,31 +82,28 @@ public class Dl4jPosTaggerTrainerTest
         int batchSize = 25;
         int epochs = 2;
         boolean shuffle = true;
-        int iterations = 2;
         double learningRate = 0.1;
         
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                .iterations(iterations)
                 .seed(12345l)
-                .updater(Updater.RMSPROP).regularization(true).l2(1e-5)
+                .updater(new RmsProp(learningRate)).l2(1e-5)
                 .weightInit(WeightInit.RELU)
                 .gradientNormalization(GradientNormalization.ClipElementWiseAbsoluteValue)
                 .gradientNormalizationThreshold(1.0)
-                .learningRate(learningRate)
                 .list()
-                .layer(0, new GravesLSTM.Builder()
+                .layer(0, new Bidirectional(Bidirectional.Mode.ADD, new LSTM.Builder()
                             .activation(Activation.SOFTSIGN)
                             .nIn(embeddingSize)
                             .nOut(200)
-                            .build())
+                            .build()))
                 .layer(1, new RnnOutputLayer.Builder()
                             .activation(Activation.SOFTMAX)
                             .lossFunction(LossFunctions.LossFunction.MCXENT)
                             .nIn(200)
                             .nOut(maxTagsetSize)
                             .build())
-                .pretrain(false).backprop(true).build();
+                .build();
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
         
@@ -132,31 +129,28 @@ public class Dl4jPosTaggerTrainerTest
         int batchSize = 25;
         int epochs = 2;
         boolean shuffle = true;
-        int iterations = 2;
         double learningRate = 0.1;
         
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                .iterations(iterations)
                 .seed(12345l)
-                .updater(Updater.RMSPROP).regularization(true).l2(1e-5)
+                .updater(new RmsProp(learningRate)).l2(1e-5)
                 .weightInit(WeightInit.RELU)
                 .gradientNormalization(GradientNormalization.ClipElementWiseAbsoluteValue)
                 .gradientNormalizationThreshold(1.0)
-                .learningRate(learningRate)
                 .list()
-                .layer(0, new GravesBidirectionalLSTM.Builder()
+                .layer(0, new Bidirectional(Bidirectional.Mode.ADD, new LSTM.Builder()
                                 .activation(Activation.SOFTSIGN)
                                 .nIn(featuresSize)
                                 .nOut(200)
-                                .build())
+                                .build()))
                 .layer(1, new RnnOutputLayer.Builder()
                                 .activation(Activation.SOFTMAX)
                                 .lossFunction(LossFunctions.LossFunction.MCXENT)
                                 .nIn(200)
                                 .nOut(maxTagsetSize)
                                 .build())
-                .pretrain(false).backprop(true).build();
+                .build();
         
         Result results = test(conf.toJson(), embeddings, maxTagsetSize, epochs, batchSize, shuffle);
 
