@@ -119,7 +119,7 @@ public class Dl4jPosTagger
                         truncateLength, maxTagsetSize, false);
 
                 // Predict labels
-                INDArray predicted = net.output(data.getFeatureMatrix(), false,
+                INDArray predicted = net.output(data.getFeatures(), false,
                         data.getFeaturesMaskArray(), data.getLabelsMaskArray());
                 
                 int i = 0;

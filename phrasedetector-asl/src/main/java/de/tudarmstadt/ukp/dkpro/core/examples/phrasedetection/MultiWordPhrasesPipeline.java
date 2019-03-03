@@ -17,26 +17,28 @@
  */
 package de.tudarmstadt.ukp.dkpro.core.examples.phrasedetection;
 
+import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
+import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
+import static org.apache.uima.fit.pipeline.SimplePipeline.iteratePipeline;
+import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
+import static org.apache.uima.fit.util.JCasUtil.select;
+
+import java.io.IOException;
+
+import org.apache.uima.UIMAException;
+import org.apache.uima.analysis_engine.AnalysisEngineDescription;
+import org.apache.uima.collection.CollectionReaderDescription;
+import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
+
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.LexicalPhrase;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.FrequencyCounter;
+import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.FrequencyWriter;
 import de.tudarmstadt.ukp.dkpro.core.frequency.phrasedetection.PhraseAnnotator;
 import de.tudarmstadt.ukp.dkpro.core.io.bincas.BinaryCasReader;
 import de.tudarmstadt.ukp.dkpro.core.io.bincas.BinaryCasWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
 import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
-import org.apache.uima.UIMAException;
-import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.collection.CollectionReaderDescription;
-import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
-
-import java.io.IOException;
-
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
-import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
-import static org.apache.uima.fit.util.JCasUtil.select;
 
 /**
  * Run two iterations of counting n-grams and annotation phrases. In the first iteration, unigrams
@@ -85,17 +87,17 @@ public class MultiWordPhrasesPipeline
                     TextReader.PARAM_LANGUAGE, "en",
                     TextReader.PARAM_LOG_FREQ, 10);
             AnalysisEngineDescription segmenter = createEngineDescription(OpenNlpSegmenter.class);
-            AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
-                    FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS1_PATH,
-                    FrequencyCounter.PARAM_SORT_BY_COUNT, true,
-                    FrequencyCounter.PARAM_MIN_COUNT, MIN_COUNT,
-                    FrequencyCounter.PARAM_FEATURE_PATH, featurePath,
-                    FrequencyCounter.PARAM_LOWERCASE, LOWERCASE);
+            AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyWriter.class,
+                    FrequencyWriter.PARAM_TARGET_LOCATION, COUNTS1_PATH,
+                    FrequencyWriter.PARAM_SORT_BY_COUNT, true,
+                    FrequencyWriter.PARAM_MIN_COUNT, MIN_COUNT,
+                    FrequencyWriter.PARAM_FEATURE_PATH, featurePath,
+                    FrequencyWriter.PARAM_LOWERCASE, LOWERCASE);
             AnalysisEngineDescription writer = createEngineDescription(BinaryCasWriter.class,
                     BinaryCasWriter.PARAM_TARGET_LOCATION, BINCAS_PATH,
                     BinaryCasWriter.PARAM_OVERWRITE, true);
 
-            SimplePipeline.runPipeline(reader, segmenter, freqCounter, writer);
+            runPipeline(reader, segmenter, freqCounter, writer);
         }
 
         float threshold = (float) 100;
@@ -117,7 +119,7 @@ public class MultiWordPhrasesPipeline
             AnalysisEngineDescription writer = createEngineDescription(BinaryCasWriter.class,
                     BinaryCasWriter.PARAM_TARGET_LOCATION, BINCAS_PATH,
                     BinaryCasWriter.PARAM_OVERWRITE, true);
-            SimplePipeline.runPipeline(reader, phraseAnnotator, writer);
+            runPipeline(reader, phraseAnnotator, writer);
         }
 
         /* operate on previously annotated phrases instead of tokens */
@@ -130,14 +132,14 @@ public class MultiWordPhrasesPipeline
                     BinaryCasReader.PARAM_SOURCE_LOCATION, BINCAS_PATH + "/*bcas",
                     BinaryCasReader.PARAM_LANGUAGE, "en",
                     BinaryCasReader.PARAM_LOG_FREQ, 10);
-            AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyCounter.class,
-                    FrequencyCounter.PARAM_TARGET_LOCATION, COUNTS2_PATH,
-                    FrequencyCounter.PARAM_SORT_BY_COUNT, true,
-                    FrequencyCounter.PARAM_MIN_COUNT, MIN_COUNT,
-                    FrequencyCounter.PARAM_FEATURE_PATH, featurePath,
-                    FrequencyCounter.PARAM_LOWERCASE, LOWERCASE);
+            AnalysisEngineDescription freqCounter = createEngineDescription(FrequencyWriter.class,
+                    FrequencyWriter.PARAM_TARGET_LOCATION, COUNTS2_PATH,
+                    FrequencyWriter.PARAM_SORT_BY_COUNT, true,
+                    FrequencyWriter.PARAM_MIN_COUNT, MIN_COUNT,
+                    FrequencyWriter.PARAM_FEATURE_PATH, featurePath,
+                    FrequencyWriter.PARAM_LOWERCASE, LOWERCASE);
 
-            SimplePipeline.runPipeline(reader, freqCounter);
+            runPipeline(reader, freqCounter);
         }
 
         /* reduce the threshold for the second iteration */
@@ -158,7 +160,7 @@ public class MultiWordPhrasesPipeline
                     PhraseAnnotator.PARAM_LOWERCASE, LOWERCASE);
 
             /* print multiword-phrases */
-            for (JCas jCas : SimplePipeline.iteratePipeline(reader, phraseAnnotator)) {
+            for (JCas jCas : iteratePipeline(reader, phraseAnnotator)) {
                 select(jCas, LexicalPhrase.class).stream()
                         .map(Annotation::getCoveredText)
                         .filter(phrase -> phrase.contains(" ")) // identify multi-word phrases
