@@ -59,14 +59,14 @@
     <!-- For models -->
     <repository>
       <id>ukp-oss-model-releases</id>
-      <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local
+      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local
       </url>
     </repository>
 
     <!-- For DKPro Core SNAPSHOTs -->
     <repository>
       <id>ukp-oss-snapshots</id>
-      <url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots/</url>
+      <url>https://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
